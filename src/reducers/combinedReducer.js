@@ -1,7 +1,7 @@
 'use strict'
 
 const initialState = {
-  view: 'chooseLiquor',
+  view: 'recipe',
   alcohol: ['Whiskey', 'Rum', 'Vodka', 'Gin', 'Tequila'],
   bases: ['Club soda', 'Lemon juice', 'Ginger ale']
 };

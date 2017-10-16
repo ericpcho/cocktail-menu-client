@@ -31,12 +31,11 @@ export class Header extends React.Component {
             <h3>Select a drink</h3>
           </div>
       }
-      // else if (this.state === 'recipe')
-      //   headerText = 
-      //     <div>
-      //       <h2>Whiskey Sour</h2>
-      //     </div>
-      //     drinkOption = <DrinkOption />
+      else if (this.state === 'recipe')
+        headerText = 
+          <div>
+            <h2>Whiskey Sour</h2>
+          </div>
       return (
         <div className="header">
           {headerText}
