@@ -1,30 +1,29 @@
 import React from 'react';
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 
-import NavBar from '../nav-bar/nav-bar';
-import DrinkOption from '../drink-option/drink-option';
+// import NavBar from '../nav-bar/nav-bar';
+// import DrinkOption from '../drink-option/drink-option';
 
 export class Header extends React.Component {
-  
     render() {
-      let drinkOption;
-      let welcomeText;
+      // let drinkOption;
+      let headerText;
       
-      if (props.view === chooseLiquor) {
+      if (this.props.view === 'chooseLiquor') {
         headerText = 
           <div>
             <h2>Welcome!</h2>
             <h3>Click a liquor below to start making your drink.</h3>
           </div>
       }
-      else if (props.view === chooseBase) {
+      else if (this.props.view === 'chooseBase') {
         headerText = 
           <div>
             <h2>Whiskey</h2>
             <h3>Pick your base ingredient</h3>
           </div>
       }
-      else if (props.view === chooseDrink) {
+      else if (this.props.view === 'chooseDrink') {
         headerText = 
           <div>
             <h2>Whiskey</h2>
@@ -32,17 +31,15 @@ export class Header extends React.Component {
             <h3>Select a drink</h3>
           </div>
       }
-      else if (props.view === recipe)
-        headerText = 
-          <div>
-            <h2>Whiskey Sour</h2>
-          </div>
-          drinkOption = <DrinkOption />
+      // else if (this.state === 'recipe')
+      //   headerText = 
+      //     <div>
+      //       <h2>Whiskey Sour</h2>
+      //     </div>
+      //     drinkOption = <DrinkOption />
       return (
         <div className="header">
-          <NavBar />
           {headerText}
-          {drinkOption}
         </div>
       );
     };

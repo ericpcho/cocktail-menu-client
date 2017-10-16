@@ -5,15 +5,17 @@ import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 
 import Page from './components/page/page';
-import {creatStore, applyMiddleware} from 'redux';
-// import {combinedReducer} from './reducers/index.js';
+import {createStore, applyMiddleware} from 'redux';
+import {combinedReducer} from './reducers/combinedReducer.js';
 
 import registerServiceWorker from './registerServiceWorker';
 
-// const store = createStore(combinedReducer, applyMiddleware(thunk));
+const store = createStore(combinedReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <Page />, 
+  <Provider store={store}>
+    <Page />
+  </Provider>,
   document.getElementById('root')
 );
 
