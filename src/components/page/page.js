@@ -7,26 +7,26 @@ import DrinkOption from '../drink-option/drink-option';
 import DrinkDescroption from '../drink-description/drink-description';
 import MenuItem from '../menu-item/menu-item';
 
-export class CheeseList extends React.Component {
+export class Page extends React.Component {
 
   render() {
     let ingredient;
     let drinkOption;
     let drinkDescription;
     let menuItem;
-    if (props.state === chooseLiquor) {
+    if (props.view === chooseLiquor) {
       ingredient = <Ingredient />
     }
-    else if (props.state === chooseBase) {
+    else if (props.view === chooseBase) {
       ingredient = <Ingredient />
     }
-    else if (props.state === chooseDrink) {
+    else if (props.view === chooseDrink) {
       drinkOption = <DrinkOption />
     }
-    else if (props.state === recipe) {
+    else if (props.view === recipe) {
       drinkDescription = <DrinkDescription />
     }
-    else if (props.state === menu) {
+    else if (props.view === menu) {
       menuItem = <MenuItem />
     }
     
@@ -38,6 +38,12 @@ export class CheeseList extends React.Component {
         {drinkDescription}
         {menuItem}
       </div>
-    )
-  }
-}
+    );
+  };
+};
+
+const mapStateToProps = state => ({
+  view: state.view
+});
+
+export default connect(mapStateToProps)(Page);
