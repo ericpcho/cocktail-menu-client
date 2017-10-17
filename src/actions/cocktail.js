@@ -17,16 +17,21 @@ export const fetchCocktailsError = (error) => ({
     error
 })
 
-export const fetchCocktails = (filter) => dispatch => {
+export const fetchCocktails = (alcohol) => dispatch => {
   dispatch(fetchCocktailsRequest);
-  fetch(`${API_BASE_URL}/api/cocktails?alcohol=${filter}`)
+  fetch(`${API_BASE_URL}/api/cocktails?alcohol=${alcohol}`)
       .then(res => {
           if (!res.ok) {
               return Promise.reject(res.statusText)
           }
-          console.log(res.json())
           return res.json()
       })
       .then((cocktails) => dispatch(fetchCocktailsSuccess(cocktails)))
       .catch(error => dispatch(fetchCocktailsError(error)))
 }
+
+export const FILTER_COCKTAILS = 'FILTER_COCKTAILS';
+export const filterCocktails = (selection) => ({
+    type: FILTER_COCKTAILS,
+    cocktails: selection
+})

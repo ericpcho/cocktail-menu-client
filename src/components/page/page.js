@@ -17,17 +17,17 @@ export class Page extends React.Component {
     // let menuItem;
     if (this.props.view === 'chooseLiquor') {
       ingredients = this.props.alcohol.map((alcohol) => (
-        <Ingredient ingredient={alcohol} />
+        <Ingredient choices={alcohol} />
       ))
     }
     else if (this.props.view === 'chooseBase') {
-      ingredients = this.props.bases.map((base) => (
-        <Ingredient ingredient={base} />
+      ingredients = this.props.cocktails.map((cocktail) => (
+        <Ingredient choices={cocktail.baseLiquid} />
       ))
     }
     else if (this.props.view === 'chooseDrink') {
-      drinkOptions = drinks.map((drink, key) => (
-        <DrinkOption image={drink.thumbnail} name={drink.cocktailName} />
+      drinkOptions = this.props.cocktails.map((drink, key) => (
+        <Ingredient choices={drink.cocktailName} />
       ))
     }
     else if (this.props.view === 'recipe') {
@@ -53,7 +53,7 @@ export class Page extends React.Component {
 const mapStateToProps = state => ({
   view: state.view,
   alcohol: state.alcohol,
-  bases: state.bases
+  cocktails: state.cocktails
 });
 
 export default connect(mapStateToProps)(Page);

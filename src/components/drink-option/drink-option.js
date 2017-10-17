@@ -3,6 +3,6 @@ import React from 'react';
 
 export default function DrinkOption(props) {
   return (
-      <p>{props.name}</p>
+      <p>{this.props.cocktails.name}</p>
   )
 }

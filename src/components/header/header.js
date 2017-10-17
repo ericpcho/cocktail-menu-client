@@ -19,7 +19,7 @@ export class Header extends React.Component {
       else if (this.props.view === 'chooseBase') {
         headerText = 
           <div>
-            <h2>Whiskey</h2>
+            <h2>{this.props.selection}</h2>
             <h3>Pick your base ingredient</h3>
           </div>
       }
@@ -45,7 +45,8 @@ export class Header extends React.Component {
   };
   
   const mapStateToProps = state => ({
-    view: state.view
+    view: state.view,
+    selection: state.selection
   });
   
   export default connect(mapStateToProps)(Header);
