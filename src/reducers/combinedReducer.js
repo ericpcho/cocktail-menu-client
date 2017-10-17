@@ -7,7 +7,8 @@ const initialState = {
   cocktails: [],
   loading: false,
   selection: "",
-  error: null
+  error: null,
+  bases: []
 };
 
 export const combinedReducer = (state=initialState, action) => {
@@ -20,6 +21,7 @@ export const combinedReducer = (state=initialState, action) => {
 
     else if (action.type === actions.FETCH_COCKTAILS_SUCCESS) {
         return Object.assign({}, state, {
+            view: 'chooseBase',
             loading: false,
             error: null,
             cocktails: action.cocktails,

@@ -26,12 +26,17 @@ export const fetchCocktails = (filter) => dispatch => {
           }
           return res.json()
       })
-      
       .then(cocktails => {
-          console.log(cocktails);
           return cocktails.filter(function(cocktail){
             return cocktail.alcohol === filter;
           })
+      })
+      .then(cocktails => { 
+          let bases= []
+            cocktails.forEach(function(cocktail) {
+               cocktail.baseLiquid.push(bases)
+          })
+          return bases
       })
       .then((cocktails) => dispatch(fetchCocktailsSuccess(cocktails)))
       .catch(error => dispatch(fetchCocktailsError(error)))
