@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
 import Header from '../header/header';
 import Ingredient from '../ingredient/ingredient';
 import DrinkOption from '../drink-option/drink-option';
 import DrinkDescription from '../drink-description/drink-description';
 import MenuItem from '../menu-item/menu-item';
 import {drinks} from './test.js';
+
 export class Page extends React.Component {
   render() {
 
@@ -14,6 +14,7 @@ export class Page extends React.Component {
     let drinkOptions;
     let ingredients;
     let drinkDescription;
+
     // let menuItem;
     if (this.props.view === 'chooseLiquor') {
       ingredients = this.props.alcohol.map((alcohol) => (
@@ -21,9 +22,13 @@ export class Page extends React.Component {
       ))
     }
     else if (this.props.view === 'chooseBase') {
-      ingredients = this.props.cocktails.map((cocktail) => (
-        <Ingredient choices={cocktail.baseLiquid} />
-      ))
+      let bases = this.props.cocktails.map((cocktail) => {
+        return cocktail.baseLiquid
+      })
+      let filteredBases = Array.from(new Set(bases))
+      ingredients = filteredBases.map((base) => (
+        <Ingredient choices={base} />
+      )) 
     }
     else if (this.props.view === 'chooseDrink') {
       drinkOptions = this.props.cocktails.map((drink, key) => (
@@ -34,7 +39,6 @@ export class Page extends React.Component {
       drinkOptions = this.props.cocktails.map((drink, key) => (
         <Ingredient choices={drink.cocktailName} />
       ))
-      console.log(this.props.selectedCocktail)
       drinkDescription = 
         <DrinkDescription image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName} ingredients={this.props.selectedCocktail[0].ingredients} recipe={this.props.selectedCocktail[0].recipe}/>
     }

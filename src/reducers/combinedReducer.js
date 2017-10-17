@@ -8,7 +8,8 @@ const initialState = {
   selectedCocktail: [],
   loading: false,
   selection: '',
-  error: null
+  error: null,
+  menuItems: []
 };
 
 export const combinedReducer = (state=initialState, action) => {
@@ -45,6 +46,12 @@ export const combinedReducer = (state=initialState, action) => {
             loading: false,
             error: null,
             selectedCocktail: action.selectedCocktail
+        })
+    }
+
+    else if (action.type === actions.SAVE_TO_MENU) {
+        return Object.assign({}, state, {
+            menuItems: [...state.menuItems, state.selectedCocktail[0]]
         })
     }
 

@@ -41,3 +41,8 @@ export const displayCocktail = (selection) => ({
     type: DISPLAY_COCKTAIL,
     selectedCocktail: selection
 })
+
+export const SAVE_TO_MENU = 'SAVE_TO_MENU';
+export const saveToMenu = () => ({
+    type: SAVE_TO_MENU
+})

@@ -1,13 +1,27 @@
 import React from 'react';
-// import {connect} from 'react-redux';
+import * as actions from '../../actions/cocktail.js'
+import {connect} from 'react-redux';
 
-export default function DrinkDescription(props) {
-  return (
-      <div className="drink-description">
-        <h3>{props.name}</h3>
-        <img src={props.image}></img>
-        <h4>{props.ingredients}</h4>
-        <p>{props.recipe}</p>
-      </div>
-  )
+export class DrinkDescription extends React.Component {
+
+  onClick() {
+    this.props.dispatch(actions.saveToMenu())
+  }
+  
+
+  render () {
+    return (
+        <div className="drink-description">
+          <h3>{this.props.name}</h3>
+          <img src={this.props.image}></img>
+          <h4>{this.props.ingredients}</h4>
+          <p>{this.props.recipe}</p>
+          <button onClick={event => this.onClick(event)}>Save</button>
+        </div>
+    )
+  }
 }
+
+
+
+export default connect()(DrinkDescription);
