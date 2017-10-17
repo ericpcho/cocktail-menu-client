@@ -18,7 +18,7 @@ export const fetchCocktailsError = (error) => ({
 })
 
 export const fetchCocktails = (filter) => dispatch => {
-  dispatch(fetchCocktailsRequest)
+  dispatch(fetchCocktailsRequest);
   fetch(`${API_BASE_URL}/api/cocktails`)
       .then(res => {
           if (!res.ok) {
@@ -27,10 +27,12 @@ export const fetchCocktails = (filter) => dispatch => {
           return res.json()
       })
       
-      .then((cocktails) => cocktails.filter(function(cocktail){
-        return cocktail.alcohol === filter
+      .then(cocktails => {
+          console.log(cocktails);
+          return cocktails.filter(function(cocktail){
+            return cocktail.alcohol === filter;
+          })
       })
-
       .then((cocktails) => dispatch(fetchCocktailsSuccess(cocktails)))
       .catch(error => dispatch(fetchCocktailsError(error)))
 }

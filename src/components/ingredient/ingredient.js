@@ -7,6 +7,7 @@ export class Ingredient extends React.Component {
   onClick(event) {
     const selection = this.props.ingredient
     console.log(this.props.ingredient);
+    console.log(selection);
     this.props.dispatch(actions.fetchCocktails(selection))
   }
 

@@ -3,7 +3,7 @@ import * as actions from '../actions/cocktail.js'
 
 const initialState = {
   view: 'chooseLiquor',
-  alcohol: ['Whiskey', 'Rum', 'Vodka', 'Gin', 'Tequila'],
+  alcohol: ['Whisky', 'Rum', 'Vodka', 'Gin', 'Tequila'],
   cocktails: [],
   loading: false,
   selection: "",
@@ -19,7 +19,6 @@ export const combinedReducer = (state=initialState, action) => {
     }
 
     else if (action.type === actions.FETCH_COCKTAILS_SUCCESS) {
-        console.log("im running")
         return Object.assign({}, state, {
             loading: false,
             error: null,
