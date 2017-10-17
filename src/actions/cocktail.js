@@ -35,3 +35,9 @@ export const filterCocktails = (selection) => ({
     type: FILTER_COCKTAILS,
     cocktails: selection
 })
+
+export const DISPLAY_COCKTAIL = 'DISPLAY_COCKTAIL';
+export const displayCocktail = (selection) => ({
+    type: DISPLAY_COCKTAIL,
+    selectedCocktail: selection
+})

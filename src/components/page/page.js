@@ -31,9 +31,12 @@ export class Page extends React.Component {
       ))
     }
     else if (this.props.view === 'recipe') {
-      drinkDescription = drinks.map((drink, key) => (
-        <DrinkDescription image={drink.thumbnail} name={drink.cocktailName} ingredients={drink.ingredients} recipe={drink.recipe}/>
+      drinkOptions = this.props.cocktails.map((drink, key) => (
+        <Ingredient choices={drink.cocktailName} />
       ))
+      console.log(this.props.selectedCocktail)
+      drinkDescription = 
+        <DrinkDescription image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName} ingredients={this.props.selectedCocktail[0].ingredients} recipe={this.props.selectedCocktail[0].recipe}/>
     }
     // else if (this.props.view === menu) {
     //   menuItem = <MenuItem />
@@ -43,8 +46,8 @@ export class Page extends React.Component {
       <div className="page">
         <Header />
         {ingredients}
-        {drinkOptions}
         {drinkDescription}
+        {drinkOptions}
       </div>
     );
   };
@@ -53,7 +56,8 @@ export class Page extends React.Component {
 const mapStateToProps = state => ({
   view: state.view,
   alcohol: state.alcohol,
-  cocktails: state.cocktails
+  cocktails: state.cocktails,
+  selectedCocktail: state.selectedCocktail
 });
 
 export default connect(mapStateToProps)(Page);

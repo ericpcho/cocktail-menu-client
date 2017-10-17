@@ -15,7 +15,13 @@ export class Ingredient extends React.Component {
         return cocktail.baseLiquid === selection
       })
       this.props.dispatch(actions.filterCocktails(filter));
-      console.log(this.props.view);
+    }
+    else if (this.props.view === 'chooseDrink') {
+      const selection = this.props.choices;
+      const filter = this.props.cocktails.filter(function(cocktail) {
+        return cocktail.cocktailName === selection
+      })
+      this.props.dispatch(actions.displayCocktail(filter))
     }
   }
 
@@ -30,7 +36,6 @@ export class Ingredient extends React.Component {
 
 const mapStateToProps = state => ({
   view: state.view,
-  selection: state.selection,
   cocktails: state.cocktails
 });
 
