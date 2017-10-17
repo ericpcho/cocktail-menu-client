@@ -1,11 +1,36 @@
 'use strict'
+import * as actions from '../actions/cocktail.js'
 
 const initialState = {
-  view: 'recipe',
+  view: 'chooseLiquor',
   alcohol: ['Whiskey', 'Rum', 'Vodka', 'Gin', 'Tequila'],
-  bases: ['Club soda', 'Lemon juice', 'Ginger ale']
+  cocktails: [],
+  loading: false,
+  selection: ""
 };
 
-export const combinedReducer = (state=initialState) => {
+export const combinedReducer = (state=initialState, action) => {
+
+    if (action.type === actions.FETCH_COCKTAILS_REQUEST) {
+        return Object.assign({}, state, {
+            loading: true
+        })
+    }
+
+    else if (action.type === actions.FETCH_COCKTAILS_SUCCESS) {
+        console.log("im running")
+        return Object.assign({}, state, {
+            loading: false,
+            error: null,
+            // cocktails: action.cocktails
+        })
+    }
+
+    else if (action.type === actions.FETCH_COCKTAILS_ERROR) {
+        return Object.assign({}, state, {
+            loading: false,
+            error: action.error
+        })
+    }
   return state
 }
