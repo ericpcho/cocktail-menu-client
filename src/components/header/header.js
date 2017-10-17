@@ -26,8 +26,7 @@ export class Header extends React.Component {
       else if (this.props.view === 'chooseDrink') {
         headerText = 
           <div>
-            <h2>Whiskey</h2>
-            <h2>Lemon juice</h2>
+            <h2>{this.props.selection[0]} > {this.props.selection[1]}</h2>
             <h3>Select a drink</h3>
           </div>
       }

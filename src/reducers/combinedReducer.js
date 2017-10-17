@@ -3,7 +3,7 @@ import * as actions from '../actions/cocktail.js'
 
 const initialState = {
   view: 'chooseLiquor',
-  alcohol: ['Whisky', 'Rum', 'Vodka', 'Gin', 'Tequila'],
+  alcohol: ['Whiskey', 'Rum', 'Vodka', 'Gin', 'Tequila'],
   cocktails: [],
   loading: false,
   selection: '',
@@ -34,7 +34,7 @@ export const combinedReducer = (state=initialState, action) => {
             loading: false,
             error: null,
             cocktails: action.cocktails,
-            selection: [...state.selection, action.cocktails[0].baseLiquid]
+            selection: [state.selection, action.cocktails[0].baseLiquid]
         })
     }
 

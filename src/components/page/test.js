@@ -34,13 +34,13 @@ export const drinks = [
   {
     _id: '59e513ecd0b64f17656cb81a',
     cocktailName: 'John Collins',
-    alcohol: 'Whisky',
+    alcohol: 'Whiskey',
     baseLiquid: 'Club Soda',
     thumbnail: 'http://www.pinkduckvodka.com/media/gallery/13/vodka-tonic1.jpg',
     recipe: 'Fill glass with ice. Pour Vodka in glass and top with Tonic Water. Squeeze lime wedges over the drink and drop wedges into the drink. Lightly stir.',
     __v: 0,
     ingredients: [
-      'Whisky',
+      'Whiskey',
       'Club Soda',
       'Lime',
       'Ice'
