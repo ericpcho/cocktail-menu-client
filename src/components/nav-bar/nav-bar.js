@@ -3,10 +3,17 @@ import React from 'react';
 
 import NavButton from '../navbutton/nav-button';
 
-// export class NavBar extends React.Component {
-//   render() {
-//     if (this.props.view === 'chooseLiquor') {
-//       <NavB
-//     }
-//   }
-// }
+export default class NavBar extends React.Component {
+  render() {
+    return (
+      <header className='nav-bar'>
+        <nav>
+          <ul>
+            <NavButton text={'Home'}/>
+            <NavButton text={'View Menu'}/>
+          </ul>
+        </nav>
+      </header>
+    )
+  }
+}

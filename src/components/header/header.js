@@ -1,8 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-// import NavBar from '../nav-bar/nav-bar';
-// import DrinkOption from '../drink-option/drink-option';
+import NavBar from '../nav-bar/nav-bar';
 
 export class Header extends React.Component {
     render() {
@@ -37,6 +36,7 @@ export class Header extends React.Component {
           </div>
       return (
         <div className="header">
+          <NavBar />
           {headerText}
         </div>
       );
