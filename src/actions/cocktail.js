@@ -24,11 +24,13 @@ export const fetchCocktails = (filter) => dispatch => {
           if (!res.ok) {
               return Promise.reject(res.statusText)
           }
-          return res.json().filter(function(cocktail){
-            return cocktail.alcohol === filter
-          })
-      
+          return res.json()
       })
+      
+      .then((cocktails) => cocktails.filter(function(cocktail){
+        return cocktail.alcohol === filter
+      })
+
       .then((cocktails) => dispatch(fetchCocktailsSuccess(cocktails)))
       .catch(error => dispatch(fetchCocktailsError(error)))
 }

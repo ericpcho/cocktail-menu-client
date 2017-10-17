@@ -23,7 +23,7 @@ export const combinedReducer = (state=initialState, action) => {
         return Object.assign({}, state, {
             loading: false,
             error: null,
-            cocktails: [action.cocktails]
+            cocktails: action.cocktails,
         })
     }
 
