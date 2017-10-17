@@ -6,7 +6,8 @@ const initialState = {
   alcohol: ['Whiskey', 'Rum', 'Vodka', 'Gin', 'Tequila'],
   cocktails: [],
   loading: false,
-  selection: ""
+  selection: "",
+  error: null
 };
 
 export const combinedReducer = (state=initialState, action) => {
@@ -22,7 +23,7 @@ export const combinedReducer = (state=initialState, action) => {
         return Object.assign({}, state, {
             loading: false,
             error: null,
-            // cocktails: action.cocktails
+            cocktails: [action.cocktails]
         })
     }
 
