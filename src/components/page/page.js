@@ -6,19 +6,25 @@ import DrinkOption from '../drink-option/drink-option';
 import DrinkDescription from '../drink-description/drink-description';
 import MenuItem from '../menu-item/menu-item';
 import {drinks} from './test.js';
+import * as actions from '../../actions/cocktail.js'
 
 import './page.css';
 
 export class Page extends React.Component {
+  onClick(event) {
+    console.log(this.props.menuItems);
+    const selection = this.props.menuItems;
+    this.props.dispatch(actions.postMenu(selection));
+    this.props.dispatch(actions.fetchMenu(this.props.id));
+  }
+  
   render() {
 
-    // let ingredient;
     let drinkOptions;
     let ingredients;
     let drinkDescription;
     let menuItems;
 
-    // let menuItem;
     if (this.props.view === 'chooseLiquor') {
       ingredients = this.props.alcohol.map((alcohol) => (
         <Ingredient choices={alcohol} />
@@ -55,7 +61,7 @@ export class Page extends React.Component {
       return (
         <div>
           <Header />
-          <button className='share-button'>Share Menu</button>
+          <button className='share-button' onClick={event => this.onClick(event)}>Share Menu</button>
           <div className='menu'>
             <h2>Cocktail Menu</h2>
             {menuItems}
@@ -82,7 +88,8 @@ const mapStateToProps = state => ({
   alcohol: state.alcohol,
   cocktails: state.cocktails,
   selectedCocktail: state.selectedCocktail,
-  menuItems: state.menuItems
+  menuItems: state.menuItems,
+  id: state.id
 });
 
 export default connect(mapStateToProps)(Page);

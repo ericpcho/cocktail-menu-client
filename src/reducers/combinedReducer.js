@@ -9,7 +9,8 @@ const initialState = {
   loading: false,
   selection: '',
   error: null,
-  menuItems: []
+  menuItems: [],
+  id: ''
 };
 
 export const combinedReducer = (state=initialState, action) => {
@@ -82,6 +83,13 @@ export const combinedReducer = (state=initialState, action) => {
         return Object.assign({}, state, {
             loading: false,
             error: action.error
+        })
+    }
+
+    else if (action.type === actions.POST_MENU_SUCCESS) {
+        return Object.assign({}, state, {
+            loading: false,
+            id: action.menu._id
         })
     }
   return state

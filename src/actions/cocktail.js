@@ -50,10 +50,15 @@ export const postMenuError = (error) => ({
 })
 
 export const postMenu = (state) => dispatch => {
+    console.log('before fetch', state);
     dispatch(postMenuRequest);
-    fetch(`${API_BASE_URL}/api/menu`, {
+    fetch(`${API_BASE_URL}/api/menus`, {
         method: 'post',
-        body: state
+        body: JSON.stringify({menuItems: state}),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
     })
     .then(res => {
         if (!res.ok) {
@@ -61,10 +66,43 @@ export const postMenu = (state) => dispatch => {
         }
         return res.json()
     })
-    .then((menu) => dispatch(postMenuSuccess(menu)))
+    .then((menu) => {
+        console.log('after success', menu);
+        dispatch(postMenuSuccess(menu));
+    })
     .catch(error => dispatch(postMenuError(error)))
 }
 
+// Get Menu
+export const FETCH_MENU_REQUEST = 'FETCH_MENU_REQUEST';
+export const fetchMenuRequest = () => ({
+    type: FETCH_MENU_REQUEST
+})
+
+export const FETCH_MENU_SUCCESS = 'FETCH_MENU_SUCCESS';
+export const fetchMenuSuccess = (menu) => ({
+    type: FETCH_MENU_SUCCESS,
+    menu
+})
+
+export const FETCH_MENU_ERROR = 'FETCH_MENU_ERROR';
+export const fetchMenuError = (error) => ({
+    type: FETCH_MENU_ERROR,
+    error
+})
+
+export const fetchMenu = (id) => dispatch => {
+    dispatch(fetchMenuRequest);
+    fetch(`${API_BASE_URL}/api/menus/${id}`)
+    .then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText)
+        }
+        window.open(res.json())
+    })
+    .then((menu) => dispatch(fetchMenuSuccess(menu)))
+    .catch(error => dispatch(fetchMenuError(error)))
+  }
 
 //State Change Actions
 export const FILTER_COCKTAILS = 'FILTER_COCKTAILS';
