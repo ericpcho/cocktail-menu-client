@@ -29,11 +29,19 @@ export class Header extends React.Component {
             <h3>Select a drink</h3>
           </div>
       }
-      else if (this.state === 'recipe')
+      else if (this.props.view === 'recipe') {
         headerText = 
           <div>
             <h2>Whiskey Sour</h2>
           </div>
+      }
+      else if (this.props.view === 'menu') {
+        headerText = 
+          <div className='menu-header'>
+            <h2>Cocktail Menu</h2> 
+          </div>
+      }
+
       return (
         <div className="header">
           <NavBar />

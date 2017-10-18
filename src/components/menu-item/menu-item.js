@@ -5,7 +5,11 @@ import {connect} from 'react-redux';
 export class MenuItem extends React.Component {
 
   onClick() {
-    this.props.dispatch(actions.saveToMenu())
+    const selection = this.props.name;
+    const filter = this.props.menuItems.filter(function(item) {
+      return item.cocktailName !== selection
+    })
+    this.props.dispatch(actions.deleteMenuItem(filter))
   }
   
 
@@ -20,6 +24,8 @@ export class MenuItem extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  menuItems: state.menuItems
+});
 
-
-export default connect()(MenuItem);
+export default connect(mapStateToProps)(MenuItem);

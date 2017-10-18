@@ -48,13 +48,17 @@ export const saveToMenu = () => ({
 })
 
 export const RETURN_TO_HOME = 'RETURN_TO_HOME';
-export const returnToHome = (view) => ({
+export const returnToHome = () => ({
     type: RETURN_TO_HOME,
-    view
 })
 
 export const GO_TO_MENU = 'GO_TO_MENU';
-export const goToMenu = (view) => ({
+export const goToMenu = () => ({
     type: GO_TO_MENU,
-    view
+})
+
+export const DELETE_MENU_ITEM = 'DELETE_MENU_ITEM';
+export const deleteMenuItem = (updatedMenu) => ({
+    type: DELETE_MENU_ITEM,
+    updatedMenu
 })

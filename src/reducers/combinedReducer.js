@@ -55,6 +55,29 @@ export const combinedReducer = (state=initialState, action) => {
         })
     }
 
+    else if (action.type === actions.RETURN_TO_HOME) {
+        return Object.assign({}, state, {
+            view: 'chooseLiquor',
+            cocktails: [],
+            selectedCocktail: [],
+            loading: false,
+            selection: '',
+            error: null
+        })
+    }
+
+    else if (action.type === actions.GO_TO_MENU) {
+        return Object.assign({}, state, {
+            view: 'menu',
+        })
+    }
+
+    else if (action.type === actions.DELETE_MENU_ITEM) {
+        return Object.assign({}, state, {
+            menuItems: action.updatedMenu
+        })
+    }
+
     else if (action.type === actions.FETCH_COCKTAILS_ERROR) {
         return Object.assign({}, state, {
             loading: false,

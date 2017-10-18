@@ -4,11 +4,11 @@ import {connect} from 'react-redux';
 
 export class NavButton extends React.Component {
   onClick() {
-    if (this.props.text === 'HOME') {
-    this.props.dispatch(actions.returnToHome(this.props.route))
+    if (this.props.text === 'Home') {
+    this.props.dispatch(actions.returnToHome())
     }
     else if (this.props.text === 'View Menu') {
-      this.props.dispatch(actions.goToMenu(this.props.route))
+      this.props.dispatch(actions.goToMenu())
     }
   }
   
