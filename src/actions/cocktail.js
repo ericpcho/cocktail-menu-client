@@ -50,7 +50,6 @@ export const postMenuError = (error) => ({
 })
 
 export const postMenu = (state) => dispatch => {
-    console.log('before fetch', state);
     dispatch(postMenuRequest);
     fetch(`${API_BASE_URL}/api/menus`, {
         method: 'post',
@@ -67,8 +66,7 @@ export const postMenu = (state) => dispatch => {
         return res.json()
     })
     .then((menu) => {
-        console.log('after success', menu);
-        dispatch(postMenuSuccess(menu));
+        return dispatch(postMenuSuccess(menu));
     })
     .catch(error => dispatch(postMenuError(error)))
 }
@@ -98,9 +96,11 @@ export const fetchMenu = (id) => dispatch => {
         if (!res.ok) {
             return Promise.reject(res.statusText)
         }
-        window.open(res.json())
+        return res.json()
     })
-    .then((menu) => dispatch(fetchMenuSuccess(menu)))
+    .then((menu) => {
+        return dispatch(fetchMenuSuccess(menu))
+    })
     .catch(error => dispatch(fetchMenuError(error)))
   }
 

@@ -12,10 +12,9 @@ import './page.css';
 
 export class Page extends React.Component {
   onClick(event) {
-    console.log(this.props.menuItems);
     const selection = this.props.menuItems;
-    this.props.dispatch(actions.postMenu(selection));
-    this.props.dispatch(actions.fetchMenu(this.props.id));
+    this.props.dispatch(actions.postMenu(selection).then(this.props.dispatch(actions.fetchMenu(this.props.id)))
+    )
   }
   
   render() {
