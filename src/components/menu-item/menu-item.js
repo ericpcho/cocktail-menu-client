@@ -11,19 +11,9 @@ export class MenuItem extends React.Component {
     })
     this.props.dispatch(actions.deleteMenuItem(filter))
   }
-  
 
   render () {
 
-    if (this.props.view === "viewMenu") {
-      return (
-        <div className='menu-item'>
-          <h2>{this.props.name}</h2>
-          <h3>{this.props.ingredients}</h3>
-        </div>
-    )
-    }
-    else {
       return (
           <div className='menu-item'>
             <h2>{this.props.name}</h2>
@@ -31,7 +21,7 @@ export class MenuItem extends React.Component {
             <button onClick={event => this.onClick(event)}>X</button>
           </div>
       )
-  }}
+  }
 }
 
 const mapStateToProps = state => ({
