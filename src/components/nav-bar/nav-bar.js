@@ -9,8 +9,8 @@ export default class NavBar extends React.Component {
       <header className='nav-bar'>
         <nav>
           <ul>
-            <NavButton text={'Home'}/>
-            <NavButton text={'View Menu'}/>
+            <NavButton text={'Home'} view={'chooseLiquor'} />
+            <NavButton text={'View Menu'} view={'menu'} />
           </ul>
         </nav>
       </header>
