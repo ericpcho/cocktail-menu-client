@@ -46,3 +46,15 @@ export const SAVE_TO_MENU = 'SAVE_TO_MENU';
 export const saveToMenu = () => ({
     type: SAVE_TO_MENU
 })
+
+export const RETURN_TO_HOME = 'RETURN_TO_HOME';
+export const returnToHome = (view) => ({
+    type: RETURN_TO_HOME,
+    view
+})
+
+export const GO_TO_MENU = 'GO_TO_MENU';
+export const goToMenu = (view) => ({
+    type: GO_TO_MENU,
+    view
+})
