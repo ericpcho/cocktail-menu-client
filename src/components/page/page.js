@@ -7,6 +7,8 @@ import DrinkDescription from '../drink-description/drink-description';
 import MenuItem from '../menu-item/menu-item';
 import {drinks} from './test.js';
 
+import './page.css';
+
 export class Page extends React.Component {
   render() {
 

@@ -2,12 +2,13 @@ import React from 'react';
 import * as actions from '../../actions/cocktail.js'
 import {connect} from 'react-redux';
 
+import './drink-description.css';
+
 export class DrinkDescription extends React.Component {
 
   onClick() {
     this.props.dispatch(actions.saveToMenu())
   }
-  
 
   render () {
     return (
