@@ -92,5 +92,6 @@ export const combinedReducer = (state=initialState, action) => {
             id: action.menu._id
         })
     }
+
   return state
 }

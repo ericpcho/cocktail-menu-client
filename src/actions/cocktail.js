@@ -51,7 +51,7 @@ export const postMenuError = (error) => ({
 
 export const postMenu = (state) => dispatch => {
     dispatch(postMenuRequest);
-    fetch(`${API_BASE_URL}/api/menus`, {
+    return fetch(`${API_BASE_URL}/api/menus`, {
         method: 'post',
         body: JSON.stringify({menuItems: state}),
         headers: {
@@ -96,7 +96,7 @@ export const fetchMenu = (id) => dispatch => {
         if (!res.ok) {
             return Promise.reject(res.statusText)
         }
-        return res.json()
+        window.open(`http://localhost:3000/api/menus/${id}`)
     })
     .then((menu) => {
         return dispatch(fetchMenuSuccess(menu))

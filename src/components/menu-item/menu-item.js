@@ -14,18 +14,29 @@ export class MenuItem extends React.Component {
   
 
   render () {
-    return (
+
+    if (this.props.view === "viewMenu") {
+      return (
         <div className='menu-item'>
           <h2>{this.props.name}</h2>
           <h3>{this.props.ingredients}</h3>
-          <button onClick={event => this.onClick(event)}>X</button>
         </div>
     )
-  }
+    }
+    else {
+      return (
+          <div className='menu-item'>
+            <h2>{this.props.name}</h2>
+            <h3>{this.props.ingredients}</h3>
+            <button onClick={event => this.onClick(event)}>X</button>
+          </div>
+      )
+  }}
 }
 
 const mapStateToProps = state => ({
-  menuItems: state.menuItems
+  menuItems: state.menuItems,
+  view: state.view
 });
 
 export default connect(mapStateToProps)(MenuItem);
