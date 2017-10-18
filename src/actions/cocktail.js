@@ -96,7 +96,7 @@ export const fetchMenu = (id) => dispatch => {
         if (!res.ok) {
             return Promise.reject(res.statusText)
         }
-        window.open(`http://localhost:3000/api/menus/${id}`)
+        window.open(`http://localhost:3000/viewmenu/${id}`)
     })
     .then((menu) => {
         return dispatch(fetchMenuSuccess(menu))

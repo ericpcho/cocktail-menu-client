@@ -13,7 +13,15 @@ export class MenuItem extends React.Component {
   }
 
   render () {
-
+    if (this.props.view === 'sharedMenu') {
+      return (
+        <div className='menu-item'>
+          <h2>{this.props.name}</h2>
+          <h3>{this.props.ingredients}</h3>
+        </div>
+      )
+    }
+    else {
       return (
           <div className='menu-item'>
             <h2>{this.props.name}</h2>
@@ -21,6 +29,7 @@ export class MenuItem extends React.Component {
             <button onClick={event => this.onClick(event)}>X</button>
           </div>
       )
+    }
   }
 }
 
