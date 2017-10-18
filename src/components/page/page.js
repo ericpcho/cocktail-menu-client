@@ -51,15 +51,29 @@ export class Page extends React.Component {
       ))
     }
     
-    return (
-      <div className="page">
-        <Header />
-        {ingredients}
-        {drinkDescription}
-        {drinkOptions}
-        {menuItems}
-      </div>
+    if (this.props.view === 'menu') {
+      return (
+        <div>
+          <Header />
+          <button className='share-button'>Share Menu</button>
+          <div className='menu'>
+            <h2>Cocktail Menu</h2>
+            {menuItems}
+          </div>
+        </div>
+      )
+    }
+
+    else {
+      return (
+        <div className="page">
+          <Header />
+          {ingredients}
+          {drinkDescription}
+          {drinkOptions}
+        </div>
     );
+  }
   };
 };
 

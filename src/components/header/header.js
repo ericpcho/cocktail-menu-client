@@ -35,12 +35,6 @@ export class Header extends React.Component {
             <h2>{this.props.selection[0]} > {this.props.selection[1]} > Cocktails</h2>
           </div>
       }
-      else if (this.props.view === 'menu') {
-        headerText = 
-          <div className='menu-header'>
-            <h2>Cocktail Menu</h2> 
-          </div>
-      }
 
       return (
         <div className="header">
