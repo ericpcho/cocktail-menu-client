@@ -28,7 +28,7 @@ export class MenuItem extends React.Component {
     else {
       return (
           <div className='menu-item'>
-            <h2>{this.props.name}</h2>
+            <h3>{this.props.name}</h3>
             <ul>{ingredients}</ul>
             <button onClick={event => this.onClick(event)}>x</button>
           </div>
