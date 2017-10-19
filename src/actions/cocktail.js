@@ -96,7 +96,7 @@ export const fetchMenu = (id) => dispatch => {
         if (!res.ok) {
             return Promise.reject(res.statusText)
         }
-        window.open(`http://localhost:3000/viewmenu/${id}`)
+        window.open(`http://localhost:3000/${id}`)
     })
     .then((menu) => {
         return dispatch(fetchMenuSuccess(menu))
@@ -137,3 +137,35 @@ export const deleteMenuItem = (updatedMenu) => ({
     type: DELETE_MENU_ITEM,
     updatedMenu
 })
+
+export const fetchMenu2 = (id) => dispatch => {
+    dispatch(fetchMenuRequest);
+    fetch(`${API_BASE_URL}/api/menus/${id}`)
+    .then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText)
+        }
+        return res.json()
+    })
+    .then((menu) => {
+        return dispatch(fetchMenuSuccess(menu))
+    })
+    .catch(error => dispatch(fetchMenuError(error)))
+  }
+
+  export const FETCH_MENU2_REQUEST = 'FETCH_MENU2_REQUEST';
+  export const fetchMenu2Request = () => ({
+      type: FETCH_MENU2_REQUEST
+  })
+  
+  export const FETCH_MENU2_SUCCESS = 'FETCH_MENU2_SUCCESS';
+  export const fetchMenu2Success = (menu) => ({
+      type: FETCH_MENU2_SUCCESS,
+      menu
+  })
+  
+  export const FETCH_MENU2_ERROR = 'FETCH_MENU2_ERROR';
+  export const fetchMenu2Error = (error) => ({
+      type: FETCH_MENU2_ERROR,
+      error
+  })

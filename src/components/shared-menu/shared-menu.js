@@ -7,10 +7,12 @@ import './shared-menu.css';
 
 export class SharedMenu extends React.Component {
   
-  componentDidMount()
+  componentDidMount() {
+    this.props.dispatch(actions.fetchMenu2(this.props.id))
+  }
   
   render() {
-    let menuItems = this.props.PLACEHOLDER.map((menuItem, key) => (
+    let menuItems = this.props.menuItems.map((menuItem, key) => (
       <MenuItem name={menuItem.cocktailName} ingredients={menuItem.ingredients} />
     ))
 
@@ -22,4 +24,11 @@ export class SharedMenu extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  menuItems: state.menuItems,
+  id: state.id
+});
+
+export default connect(mapStateToProps)(SharedMenu);
 

@@ -1,18 +1,18 @@
 import React from 'react';
-import Page from './Components/Page';
-import SharedMenu from './Components/SharedMenu';
+import Page from './components/page/page';
+import SharedMenu from './components/shared-menu/shared-menu';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 
 const routes = [
   {
-    path: '/api',
-    exact: false,
+    path: '/',
+    exact: true,
     main: () => <Page />
   },
   {
-    path: '/viewmenu',
+    path: '/:id',
     exact: false,
     main: () => <SharedMenu />
   }

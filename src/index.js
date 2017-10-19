@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 import App from './app.js';
 import Page from './components/page/page';
