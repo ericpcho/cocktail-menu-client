@@ -13,11 +13,15 @@ export class MenuItem extends React.Component {
   }
 
   render () {
+    let ingredients = this.props.ingredients.map(ingredient => {
+      return <li>{ingredient}</li>
+    })
+
     if (this.props.view === 'sharedMenu') {
       return (
         <div className='menu-item'>
           <h2>{this.props.name}</h2>
-          <h3>{this.props.ingredients}</h3>
+          <ul>{ingredients}</ul>
         </div>
       )
     }
@@ -25,7 +29,7 @@ export class MenuItem extends React.Component {
       return (
           <div className='menu-item'>
             <h2>{this.props.name}</h2>
-            <h3>{this.props.ingredients}</h3>
+            <ul>{ingredients}</ul>
             <button onClick={event => this.onClick(event)}>X</button>
           </div>
       )
