@@ -19,8 +19,10 @@ export class DrinkDescription extends React.Component {
     return (
         <div className="drink-description">
           <h3>{this.props.name}</h3>
-          <img src={this.props.image}></img>
-          <ul>{ingredients}</ul>
+          <div className="recipe-ingredients">
+            <img src={this.props.image}></img>
+            <ul>{ingredients}</ul>
+          </div>
           <p>{this.props.recipe}</p>
           <button onClick={event => this.onClick(event)}>Add to Menu</button>
         </div>

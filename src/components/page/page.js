@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import NavBar from '../nav-bar/nav-bar';
 import Header from '../header/header';
 import Ingredient from '../ingredient/ingredient';
 import DrinkOption from '../drink-option/drink-option';
@@ -61,7 +62,7 @@ export class Page extends React.Component {
     if (this.props.view === 'menu') {
       return (
         <div className="page">
-          <Header />
+          <NavBar />
           <button className='share-button' onClick={event => this.onClick(event)}>Publish Menu</button>
           <div className='menu'>
             <h2>Cocktail Menu</h2>
@@ -74,10 +75,13 @@ export class Page extends React.Component {
     else {
       return (
         <div className="page">
-          <Header />
-          {ingredients}
-          {drinkDescription}
-          {drinkOptions}
+          <NavBar />
+          <div className="results">
+            <Header />
+            {ingredients}
+            {drinkDescription}
+            {drinkOptions}
+          </div>
         </div>
     );
   }

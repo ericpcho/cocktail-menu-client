@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import './header.css'
+
 import NavBar from '../nav-bar/nav-bar';
 
 export class Header extends React.Component {
@@ -25,20 +27,19 @@ export class Header extends React.Component {
       else if (this.props.view === 'chooseDrink') {
         headerText = 
           <div>
-            <h2>{this.props.selection[0]} > {this.props.selection[1]}</h2>
+            <h2>{this.props.selection[0]} › {this.props.selection[1]}</h2>
             <h3>Select a drink</h3>
           </div>
       }
       else if (this.props.view === 'recipe') {
         headerText = 
           <div>
-            <h2>{this.props.selection[0]} > {this.props.selection[1]} > Cocktails</h2>
+            <h2>{this.props.selection[0]} › {this.props.selection[1]} › Cocktails</h2>
           </div>
       }
 
       return (
         <div className="header">
-          <NavBar />
           {headerText}
         </div>
       );

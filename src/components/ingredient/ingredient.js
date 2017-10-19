@@ -2,6 +2,8 @@ import React from 'react';
 import * as actions from '../../actions/cocktail.js'
 import {connect} from 'react-redux'
 
+import './ingredient.css';
+
 export class Ingredient extends React.Component {
 
   onClick(event) {
@@ -26,11 +28,20 @@ export class Ingredient extends React.Component {
   }
 
   render() {
-    return (
-      <div onClick={e => this.onClick(e)}>
-        <p>{this.props.choices}</p>
-      </div>
-    )
+    if (this.props.view === 'chooseDrink' || this.props.view === 'recipe') {
+      return (
+        <div onClick={e => this.onClick(e)} className='ingredient'>
+          <p><i class="fa fa-glass" aria-hidden="true"></i>  {this.props.choices}</p>
+        </div>
+      )
+    }
+    else {
+      return (
+        <div onClick={e => this.onClick(e)} className='ingredient'>
+          <p><i class="fa fa-tint" aria-hidden="true"></i>  {this.props.choices}</p>
+        </div>
+      )
+  }
   }
 }
 

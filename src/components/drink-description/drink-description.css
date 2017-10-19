@@ -1,4 +1,51 @@
-img {
-  min-width: 50px;
-  max-width: 200px;
+.drink-description .recipe-ingredients {
+  padding-bottom: 5px;
+  border-bottom: #e9f1f2 solid 1px;
+}
+
+.drink-description .recipe-ingredients img {
+  min-height: 50px;
+  max-height: 100px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.drink-description .recipe-ingredients ul {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  list-style-type: none;
+  list-style-position:inside;
+  margin:0;
+  padding:0;
+}
+
+.drink-description {
+  width: 80%;
+  padding: 5px 10px 20px 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border: #e9f1f2 solid 2px;
+  border-radius: 5px;
+}
+
+.drink-description h3 {
+  color: black;
+}
+
+.drink-description button {
+  background-color: #38cfe7;
+  color: white;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px 10px 5px 10px;
+  padding: 5px;
+}
+
+.drink-description button:hover {
+  box-shadow: 0 0 5px rgba(0,0,0,.4);
+  cursor: pointer;
 }
