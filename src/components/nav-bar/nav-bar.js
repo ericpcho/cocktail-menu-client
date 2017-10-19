@@ -8,7 +8,7 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <header>
-        <nav>
+        <nav className = 'navigation'>
           <ul className='nav-bar'>
             <NavButton text={'Home'} route={'chooseLiquor'} />
             <NavButton text={'View Menu'} route={'menu'} />

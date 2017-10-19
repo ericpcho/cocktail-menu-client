@@ -60,7 +60,7 @@ export class Page extends React.Component {
     
     if (this.props.view === 'menu') {
       return (
-        <div>
+        <div className="page">
           <Header />
           <button className='share-button' onClick={event => this.onClick(event)}>Publish Menu</button>
           <div className='menu'>

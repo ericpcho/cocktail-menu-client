@@ -20,7 +20,7 @@ export const fetchCocktailsError = (error) => ({
 
 export const fetchCocktails = (alcohol) => dispatch => {
     dispatch(fetchCocktailsRequest);
-    fetch(`${API_BASE_URL}/api/cocktails?alcohol=${alcohol}`)
+    fetch(`${API_BASE_URL}/cocktails?alcohol=${alcohol}`)
     .then(res => {
         if (!res.ok) {
             return Promise.reject(res.statusText)
