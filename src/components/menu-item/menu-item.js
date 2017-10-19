@@ -30,7 +30,7 @@ export class MenuItem extends React.Component {
           <div className='menu-item'>
             <h3>{this.props.name}</h3>
             <ul>{ingredients}</ul>
-            <button onClick={event => this.onClick(event)}>x</button>
+            <button class='btn btn-default' className='delete-button' onClick={event => this.onClick(event)}><i class="fa fa-trash-o" aria-hidden="true"></i></button>
           </div>
       )
     }

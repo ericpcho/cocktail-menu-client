@@ -39,8 +39,29 @@
   font-size: 1.5em;
 }
 
+.menu li:first-child::before {
+  content:""
+}
+
+.menu li::before {
+  content: "~ ";
+  font-size: 15px;
+}
+
 .menu li {
   font-size: 1.2em;
+  list-style: none;
+  display: inline-block;
+  padding: 0px 5px 0px 0px;
+}
+
+.delete-button {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.menu ul {
+  display: inline-block;
 }
 
 .share-button {
