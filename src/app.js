@@ -5,32 +5,26 @@ import SharedMenu from './components/shared-menu/shared-menu';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 
-const routes = [
-  {
-    path: '/',
-    exact: true,
-    main: () => <Page />
-  },
-  {
-    path: '/:id',
-    exact: false,
-    main: () => <SharedMenu />
-  }
-];
+// const routes = [
+//   {
+//     path: '/',
+//     exact: true,
+//     main: () => <Page />
+//   },
+//   {
+//     path: '/:id',
+//     exact: false,
+//     main: () => <SharedMenu />
+//   }
+// ];
 
 function Layout(){
   return (
     <Router>
 
         <div>
-          {routes.map((route, index) => (
-            <Route
-              key={index}
-              path={route.path}
-              exact={route.exact}
-              component={route.main}
-            />
-          ))}
+          <Route path="/:id" component={SharedMenu} />
+          <Route exact path="/" component={Page} />
         </div>
 
     </Router>

@@ -147,10 +147,11 @@ export const fetchMenu2 = (id) => dispatch => {
         }
         return res.json()
     })
-    .then((menu) => {
-        return dispatch(fetchMenuSuccess(menu))
+    .then((res) => {
+        console.log(res)
+        return dispatch(fetchMenu2Success(res.menuItems))
     })
-    .catch(error => dispatch(fetchMenuError(error)))
+    .catch(error => dispatch(fetchMenu2Error(error)))
   }
 
   export const FETCH_MENU2_REQUEST = 'FETCH_MENU2_REQUEST';

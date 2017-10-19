@@ -16,18 +16,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore(combinedReducer, applyMiddleware(thunk));
 
-const routes = [
-  {
-    path: '',
-    exact: false,
-    main: () => <Page />
-  },
-  {
-    path: '',
-    exact: false,
-    main: () => <SharedMenu />
-  }
-];
 
 ReactDOM.render(
   <Provider store={store}>

@@ -25,10 +25,13 @@ export class SharedMenu extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => {
+  console.log(state)
+  return {
   menuItems: state.menuItems,
-  id: state.id
-});
+  id: ownProps.match.params.id
+  }
+};
 
 export default connect(mapStateToProps)(SharedMenu);
 
