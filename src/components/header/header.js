@@ -12,7 +12,7 @@ export class Header extends React.Component {
         headerText = 
           <div>
             <h2>Welcome!</h2>
-            <h3>Click a liquor below to start making your drink.</h3>
+            <h3>Click a liquor below to find a drink.</h3>
           </div>
       }
       else if (this.props.view === 'chooseBase') {

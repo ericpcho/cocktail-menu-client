@@ -22,12 +22,10 @@ export class DrinkDescription extends React.Component {
           <img src={this.props.image}></img>
           <ul>{ingredients}</ul>
           <p>{this.props.recipe}</p>
-          <button onClick={event => this.onClick(event)}>Save</button>
+          <button onClick={event => this.onClick(event)}>Add to Menu</button>
         </div>
     )
   }
 }
-
-
 
 export default connect()(DrinkDescription);

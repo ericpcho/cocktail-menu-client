@@ -62,7 +62,7 @@ export class Page extends React.Component {
       return (
         <div>
           <Header />
-          <button className='share-button' onClick={event => this.onClick(event)}>Share Menu</button>
+          <button className='share-button' onClick={event => this.onClick(event)}>Publish Menu</button>
           <div className='menu'>
             <h2>Cocktail Menu</h2>
             {menuItems}
