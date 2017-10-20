@@ -5,6 +5,8 @@
 
 .menu-item ul {
   margin: 5px 0 15px 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 .menu-item li:first-child::before {
