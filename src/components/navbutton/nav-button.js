@@ -15,12 +15,24 @@ export class NavButton extends React.Component {
   }
   
   render() {
+    let count;
+    if (this.props.text === 'View Menu') {
+      count = `(${this.props.menuItems.length})`
+    }
+    else {
+      count = ''
+    }
+
   return (
     <li className='nav-button'>
-      <a onClick={event => this.onClick(event)}>{this.props.text}</a>
+      <a onClick={event => this.onClick(event)}>{this.props.text}{count}</a>
     </li>
   )
 }
 }
 
-export default connect()(NavButton);
+const mapStateToProps = state => ({
+  menuItems: state.menuItems,
+});
+
+export default connect(mapStateToProps)(NavButton);

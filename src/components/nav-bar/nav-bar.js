@@ -1,10 +1,10 @@
 import React from 'react';
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import NavButton from '../navbutton/nav-button';
 
 import './nav-bar.css'
 
-export default class NavBar extends React.Component {
+export class NavBar extends React.Component {
   render() {
     return (
       <header>
@@ -18,3 +18,5 @@ export default class NavBar extends React.Component {
     )
   }
 }
+
+export default connect()(NavBar);
