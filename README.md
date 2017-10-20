@@ -26,7 +26,43 @@ The Cocktail Menu Maker uses React with reusable components. The liquor, base in
 
 The app is connected to a database on mLab with two collection: one for the various cocktails in the app and one for users' custom, shareable menus. The cocktail collection connects to the app through a single GET endpoint, while the menu collection connects through both a GET endpoint and a POST endpoint. This allows users to create a menu on the fly and be able to access that menu at any time in the future (assuming they keep track of the link with the menu's ID).
 
+#### Cocktails
 
+Method  | Access | Description |
+| ------- |------- | ----------- |
+| GET     | Public | Pulls cocktails from database |
+
+Pulls cocktails in JSON format:
+{
+  cocktailName,
+  ingredients,
+  alcohol,
+  baseLiquid,
+  thumbnail,
+  recipe
+}
+
+#### Menus
+
+Method  | Access | Description |
+| ------- |------- | ----------- |
+| GET     | Public | Pulls menus from database |
+
+Method  | Access | Description |
+| ------- |------- | ----------- |
+| POST     | Public | Adds state-held menu to database |
+
+Pulls and send menus in JSON format:
+{
+  menuItems: [{
+    cocktailName,
+    ingredients,
+    alcohol,
+    baseLiquid,
+    thumbnail,
+    recipe
+  }]
+}
 
 ## How to use the app
 
@@ -46,6 +82,6 @@ At the bottom of the recipe card is a button to add the cocktail to your menu.
 
 ### View your cocktail menu
 
-At any time using the app, you can click on "View Menu" in the navigation bar to see your cocktail menu. The menu is essentially a previous of what your shareable menu will look like, except you can still add cocktails to and delete cocktails from the menu before you publish. 
+At any time using the app, you can click on "View Menu" in the navigation bar to see your cocktail menu. The menu is essentially a preview of what your shareable menu will look like, except you can still add cocktails to and delete cocktails from the menu before you publish. 
 
 At the top of the menu page is a "Publish Menu" button. This will open a new tab with your shareable menu that is now saved in the database.
