@@ -3,10 +3,8 @@ import {connect} from 'react-redux';
 import NavBar from '../nav-bar/nav-bar';
 import Header from '../header/header';
 import Ingredient from '../ingredient/ingredient';
-import DrinkOption from '../drink-option/drink-option';
 import DrinkDescription from '../drink-description/drink-description';
 import MenuItem from '../menu-item/menu-item';
-import {drinks} from './test.js';
 import * as actions from '../../actions/cocktail.js'
 
 import './page.css';
@@ -16,7 +14,6 @@ export class Page extends React.Component {
     const selection = this.props.menuItems;
     this.props.dispatch(actions.postMenu(selection)).then(() => {
     this.props.dispatch(actions.fetchMenu(this.props.id));
-    console.log(this.props.id) 
     });
   }
   
@@ -28,7 +25,7 @@ export class Page extends React.Component {
     let menuItems;
 
     if (this.props.view === 'chooseLiquor') {
-      ingredients = this.props.alcohol.map((alcohol) => (
+      ingredients = this.props.alcohol.map((alcohol, key) => (
         <Ingredient choices={alcohol} />
       ))
     }
@@ -47,7 +44,10 @@ export class Page extends React.Component {
       ))
     }
     else if (this.props.view === 'recipe') {
-      drinkOptions = this.props.cocktails.map((drink, key) => (
+      let filteredCocktails = this.props.cocktails.filter((cocktail) => {
+        return cocktail.cocktailName !== this.props.selectedCocktail[0].cocktailName
+      })
+      drinkOptions = filteredCocktails.map((drink, key) => (
         <Ingredient choices={drink.cocktailName} />
       ))
       drinkDescription = 

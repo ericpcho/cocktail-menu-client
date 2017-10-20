@@ -3,8 +3,6 @@ import {connect} from 'react-redux';
 
 import './header.css'
 
-import NavBar from '../nav-bar/nav-bar';
-
 export class Header extends React.Component {
     render() {
       // let drinkOption;
@@ -14,7 +12,7 @@ export class Header extends React.Component {
         headerText = 
           <div>
             <h2>Welcome!</h2>
-            <h3>Click a liquor below to find a drink.</h3>
+            <h3>Click a liquor below to find a drink</h3>
           </div>
       }
       else if (this.props.view === 'chooseBase') {

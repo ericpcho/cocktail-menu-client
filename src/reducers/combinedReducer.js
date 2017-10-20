@@ -1,4 +1,3 @@
-'use strict'
 import * as actions from '../actions/cocktail.js'
 
 const initialState = {

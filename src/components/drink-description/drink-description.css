@@ -3,11 +3,22 @@
   border-bottom: #e9f1f2 solid 1px;
 }
 
+.image-container {
+  width: 40%;
+  display: inline-block;
+}
+
 .drink-description .recipe-ingredients img {
   min-height: 50px;
   max-height: 100px;
   display: inline-block;
   vertical-align: middle;
+  text-align: center;
+}
+
+.ingredients-container {
+  width: 40%;
+  display: inline-block;
 }
 
 .drink-description .recipe-ingredients ul {

@@ -2,6 +2,8 @@ import React from 'react';
 import * as actions from '../../actions/cocktail.js'
 import {connect} from 'react-redux';
 
+import './menu-item.css';
+
 export class MenuItem extends React.Component {
 
   onClick() {
@@ -20,7 +22,7 @@ export class MenuItem extends React.Component {
     if (this.props.view === 'sharedMenu') {
       return (
         <div className='menu-item'>
-          <h2>{this.props.name}</h2>
+          <h3>{this.props.name}</h3>
           <ul>{ingredients}</ul>
         </div>
       )
@@ -30,7 +32,7 @@ export class MenuItem extends React.Component {
           <div className='menu-item'>
             <h3>{this.props.name}</h3>
             <ul>{ingredients}</ul>
-            <button class='btn btn-default' className='delete-button' onClick={event => this.onClick(event)}><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            <button className='btn btn-default delete-button' onClick={event => this.onClick(event)}><i class="fa fa-trash-o" aria-hidden="true"></i></button>
           </div>
       )
     }
@@ -39,7 +41,8 @@ export class MenuItem extends React.Component {
 
 const mapStateToProps = state => ({
   menuItems: state.menuItems,
-  view: state.view
+  view: state.view,
+  selectedCocktail: state.selectedCocktail
 });
 
 export default connect(mapStateToProps)(MenuItem);

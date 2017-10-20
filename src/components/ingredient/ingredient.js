@@ -31,14 +31,14 @@ export class Ingredient extends React.Component {
     if (this.props.view === 'chooseDrink' || this.props.view === 'recipe') {
       return (
         <div onClick={e => this.onClick(e)} className='ingredient'>
-          <p><i class="fa fa-glass" aria-hidden="true"></i>  {this.props.choices}</p>
+          <p><i className="fa fa-glass" aria-hidden="true"></i>  {this.props.choices}</p>
         </div>
       )
     }
     else {
       return (
         <div onClick={e => this.onClick(e)} className='ingredient'>
-          <p><i class="fa fa-tint" aria-hidden="true"></i>  {this.props.choices}</p>
+          <p><i className="fa fa-tint" aria-hidden="true"></i>  {this.props.choices}</p>
         </div>
       )
   }
