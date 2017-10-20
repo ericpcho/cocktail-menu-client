@@ -86,29 +86,29 @@ Pulls and send menus in JSON format:
 
 ### Choose your liquor
 
-<img src="./Cocktail-menu-screenshots/home-page.png>
+<img src="./Cocktail-menu-screenshots/home-page.png">
 
 When users load up the app, they will instantly be able to choose the main alcoholic ingredient in the cocktail they're searching for or want to find a new recipe with. Users will always be able to return to this page by clicking "Home" in the navigation bar present at the top of the app on each page. Choosing a liquor is as simple as clicking on the one you want or tapping it on a touchscreen.
 
 ### Choose your base ingredient
 
-<img src="./Cocktail-menu-screenshots/choose-base-page.png>
+<img src="./Cocktail-menu-screenshots/choose-base-page.png">
 
 After selecting the main alcoholic ingredient, users will be presented with a list of base mixing ingredients. The list may be different depending on what liquor they chose, as the base mixing ingredients rendered are only for drinks with the previously-selected liquor are their main alcoholic ingredient. You wouldn't want to choose a base ingredient and have no cocktail results!
 
 ### Choose your cocktail
 
-<img src="./Cocktail-menu-screenshots/choose-drink-page.png>
+<img src="./Cocktail-menu-screenshots/choose-drink-page.png">
 
 After selecting the base mixing ingredient, you will see a similar screen to the last two, on which you can choose a cocktail based on your previously-selected ingredients. Clicking or tapping on one will bring up the recipe card for that cocktail. Here you can see a picture of the cocktail, the ingredients, and a description on how to make the drink. Underneath the card you will see the cocktail option cards if you would like to see the recipe for one of the other cocktails using your selected ingredients.
 
-<img src="./Cocktail-menu-screenshots/recipe-card-page.png>
+<img src="./Cocktail-menu-screenshots/recipe-card-page.png">
 
 At the bottom of the recipe card is a button to add the cocktail to your menu.
 
 ### View your cocktail menu
 
-<img src="./Cocktail-menu-screenshots/view-menu-page.png>
+<img src="./Cocktail-menu-screenshots/view-menu-page.png">
 
 At any time using the app, you can click on "View Menu" in the navigation bar to see your cocktail menu. The menu is essentially a preview of what your shareable menu will look like, except you can still add cocktails to and delete cocktails from the menu before you publish. 
 
