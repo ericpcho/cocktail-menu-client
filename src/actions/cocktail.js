@@ -96,7 +96,7 @@ export const fetchMenu = (id) => dispatch => {
         if (!res.ok) {
             return Promise.reject(res.statusText)
         }
-        window.open(`http://localhost:3000/${id}`)
+        window.open(`http://taxi-driver-kangaroo-18524.netlify.com/${id}`)
     })
     .then((menu) => {
         return dispatch(fetchMenuSuccess(menu))
