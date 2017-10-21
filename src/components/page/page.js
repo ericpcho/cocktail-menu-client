@@ -26,7 +26,7 @@ export class Page extends React.Component {
 
     if (this.props.view === 'chooseLiquor') {
       if (this.props.isLoading) {
-        return <p>Is Loading</p>
+        return <p className='loading-screen'>Loading...</p>
       }
       else {
         ingredients = this.props.alcohol.map((alcohol, key) => (

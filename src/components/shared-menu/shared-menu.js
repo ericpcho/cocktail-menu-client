@@ -12,10 +12,14 @@ export class SharedMenu extends React.Component {
   }
   
   render() {
+    if (this.props.isLoading) {
+      return <p className='loading-screen'>Loading...</p>
+    }
+    else {
     let menuItems = this.props.menuItems.map((menuItem, key) => (
       <MenuItem name={menuItem.cocktailName} ingredients={menuItem.ingredients} />
     ))
-
+  
     return (
       <div className='shared-menu'>
         <h2>Cocktail Menu</h2>
@@ -24,12 +28,14 @@ export class SharedMenu extends React.Component {
     )
   }
 }
+}
 
 const mapStateToProps = (state, ownProps) => {
   console.log(state)
   return {
   menuItems: state.menuItems,
-  id: ownProps.match.params.id
+  id: ownProps.match.params.id,
+  isLoading: state.loading
   }
 };
 
