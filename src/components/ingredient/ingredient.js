@@ -47,7 +47,7 @@ export class Ingredient extends React.Component {
 
 const mapStateToProps = state => ({
   view: state.view,
-  cocktails: state.cocktails
+  cocktails: state.cocktails,
 });
 
 export default connect(mapStateToProps)(Ingredient);

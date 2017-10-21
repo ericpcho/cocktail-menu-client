@@ -25,9 +25,14 @@ export class Page extends React.Component {
     let menuItems;
 
     if (this.props.view === 'chooseLiquor') {
-      ingredients = this.props.alcohol.map((alcohol, key) => (
-        <Ingredient choices={alcohol} />
-      ))
+      if (this.props.isLoading) {
+        return <p>Is Loading</p>
+      }
+      else {
+        ingredients = this.props.alcohol.map((alcohol, key) => (
+          <Ingredient choices={alcohol} />
+        ))
+      }
     }
     else if (this.props.view === 'chooseBase') {
       let bases = this.props.cocktails.map((cocktail) => {
@@ -94,7 +99,8 @@ const mapStateToProps = state => ({
   cocktails: state.cocktails,
   selectedCocktail: state.selectedCocktail,
   menuItems: state.menuItems,
-  id: state.id
+  id: state.id,
+  isLoading: state.loading
 });
 
 export default connect(mapStateToProps)(Page);

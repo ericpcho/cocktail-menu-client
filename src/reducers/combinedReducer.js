@@ -5,7 +5,7 @@ const initialState = {
   alcohol: ['Whiskey', 'Rum', 'Vodka', 'Gin', 'Tequila'],
   cocktails: [],
   selectedCocktail: [],
-//   loading: false,
+  loading: false,
   selection: '',
 //   error: null,
   menuItems: [],
@@ -14,16 +14,16 @@ const initialState = {
 
 export const combinedReducer = (state=initialState, action) => {
 
-    // if (action.type === actions.FETCH_COCKTAILS_REQUEST) {
-    //     return Object.assign({}, state, {
-    //         loading: true
-    //     })
-    // }
+    if (action.type === actions.FETCH_COCKTAILS_REQUEST) {
+        return Object.assign({}, state, {
+            loading: true
+        })
+    }
 
     if (action.type === actions.FETCH_COCKTAILS_SUCCESS) {
         return Object.assign({}, state, {
             view: 'chooseBase',
-            // loading: false,
+            loading: false,
             // error: null,
             cocktails: action.cocktails,
             selection: action.cocktails[0].alcohol

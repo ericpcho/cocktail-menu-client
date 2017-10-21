@@ -19,7 +19,7 @@ export const fetchCocktailsError = (error) => ({
 })
 
 export const fetchCocktails = (alcohol) => dispatch => {
-    dispatch(fetchCocktailsRequest);
+    dispatch(fetchCocktailsRequest());
     fetch(`${API_BASE_URL}/api/cocktails?alcohol=${alcohol}`)
     .then(res => {
         if (!res.ok) {
