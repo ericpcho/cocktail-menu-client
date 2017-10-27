@@ -75,7 +75,7 @@ else if (action.type === actions.FETCH_COCKTAILS_BY_NAME_SUCCESS) {
 
     else if (action.type === actions.RETURN_TO_HOME) {
         return Object.assign({}, state, {
-            view: 'chooseLiquor',
+            view: 'home',
             cocktails: [],
             selectedCocktail: [],
             // loading: false,
