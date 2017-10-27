@@ -24,6 +24,10 @@ export class Page extends React.Component {
     let drinkDescription;
     let menuItems;
 
+    // if (this.props.view === 'home') {
+
+    // }
+
     if (this.props.view === 'chooseLiquor') {
       if (this.props.isLoading) {
         return <p className='loading-screen'>Loading...</p>

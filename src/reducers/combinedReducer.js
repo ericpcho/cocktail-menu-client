@@ -1,7 +1,7 @@
 import * as actions from '../actions/cocktail.js'
 
 const initialState = {
-  view: 'home',
+  view: 'chooseLiquor',
   alcohol: ['Whiskey', 'Rum', 'Vodka', 'Gin', 'Tequila'],
   cocktails: [],
   selectedCocktail: [],
