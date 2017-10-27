@@ -11,8 +11,8 @@ export class DrinkDescription extends React.Component {
   }
 
   render () {
-    let ingredients = this.props.ingredients.map(ingredient => {
-      return <li>{ingredient}</li>
+    let ingredients = this.props.ingredients.map((ingredient, key) => {
+      return <li key={key}>{ingredient}</li>
     })
 
     return (

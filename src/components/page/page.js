@@ -30,24 +30,28 @@ export class Page extends React.Component {
       }
       else {
         ingredients = this.props.alcohol.map((alcohol, key) => (
-          <Ingredient choices={alcohol} />
+          <Ingredient key={key} choices={alcohol} />
         ))
       }
     }
     else if (this.props.view === 'chooseBase') {
-      let bases = this.props.cocktails.map((cocktail) => {
+      // let bases = this.props.cocktails.map((cocktail) => {
+      //   return cocktail.baseLiquid
+      // })
+      let bases = [];
+      this.props.cocktails.forEach((cocktail) => {
         for (let i=0; i < cocktail.baseLiquid.length; i++) {
-          return cocktail.baseLiquid[i]
+          bases.push(cocktail.baseLiquid[i]);
         }
       })
       let filteredBases = Array.from(new Set(bases))
-      ingredients = filteredBases.map((base) => (
-        <Ingredient choices={base} />
+      ingredients = filteredBases.map((base, key) => (
+        <Ingredient key={key} choices={base} />
       )) 
     }
     else if (this.props.view === 'chooseDrink') {
       drinkOptions = this.props.cocktails.map((drink, key) => (
-        <Ingredient choices={drink.cocktailName} />
+        <Ingredient key={key} choices={drink.cocktailName} />
       ))
     }
     else if (this.props.view === 'recipe') {
@@ -55,14 +59,14 @@ export class Page extends React.Component {
         return cocktail.cocktailName !== this.props.selectedCocktail[0].cocktailName
       })
       drinkOptions = filteredCocktails.map((drink, key) => (
-        <Ingredient choices={drink.cocktailName} />
+        <Ingredient key={key} choices={drink.cocktailName} />
       ))
       drinkDescription = 
         <DrinkDescription image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName} ingredients={this.props.selectedCocktail[0].ingredients} recipe={this.props.selectedCocktail[0].recipe}/>
     }
     else if (this.props.view === 'menu') {
       menuItems = this.props.menuItems.map((menuItem, key) => (
-        <MenuItem name={menuItem.cocktailName} ingredients={menuItem.ingredients} />
+        <MenuItem key={key} name={menuItem.cocktailName} ingredients={menuItem.ingredients} />
       ))
     }
     
