@@ -31,6 +31,36 @@ export const fetchCocktails = (alcohol) => dispatch => {
     .catch(error => dispatch(fetchCocktailsError(error)))
   }
 
+  export const FETCH_COCKTAILS_BY_NAME_REQUEST = 'FETCH_COCKTAILS_BY_NAME_REQUEST';
+  export const fetchCocktailsByNameRequest = () => ({
+      type: FETCH_COCKTAILS_BY_NAME_REQUEST
+  })
+  
+  export const FETCH_COCKTAILS_BY_NAME_SUCCESS = 'FETCH_COCKTAILS_BY_NAME_SUCCESS';
+  export const fetchCocktailsByNameSuccess = (cocktails) => ({
+      type: FETCH_COCKTAILS_BY_NAME_SUCCESS,
+      cocktails
+  })
+  
+  export const FETCH_COCKTAILS_BY_NAME_ERROR = 'FETCH_COCKTAILS_BY_NAME_ERROR';
+  export const fetchCocktailsByNameError = (error) => ({
+      type: FETCH_COCKTAILS_BY_NAME_ERROR,
+      error
+  })
+
+  export const fetchCocktailsByName = (cocktailName) => dispatch => {
+    dispatch(fetchCocktailsByNameRequest());
+    fetch(`${API_BASE_URL}/api/cocktails?cocktailName=${cocktailName}`)
+    .then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText)
+        }
+        return res.json()
+    })
+    .then((cocktails) => dispatch(fetchCocktailsByNameSuccess(cocktails)))
+    .catch(error => dispatch(fetchCocktailsByNameError(error)))
+  }
+
 // Post Menu
 export const POST_MENU_REQUEST = 'POST_MENU_REQUEST';
 export const postMenuRequest = () => ({
@@ -105,6 +135,12 @@ export const fetchMenuId = (id) => dispatch => {
   }
 
 //State Change Actions
+export const CHANGE_VIEW = 'CHANGE_VIEW';
+export const changeView = (view) => ({
+    type: CHANGE_VIEW,
+    view
+})
+
 export const FILTER_COCKTAILS = 'FILTER_COCKTAILS';
 export const filterCocktails = (filter, selection) => ({
     type: FILTER_COCKTAILS,
@@ -172,3 +208,4 @@ export const fetchMenu = (id) => dispatch => {
       type: FETCH_MENU_ERROR,
       error
   })
+

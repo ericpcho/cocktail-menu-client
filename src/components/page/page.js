@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import HomeOption from'../home-option/home-option';
 import NavBar from '../nav-bar/nav-bar';
 import Header from '../header/header';
+import Search from '../search/search';
 import Ingredient from '../ingredient/ingredient';
 import DrinkDescription from '../drink-description/drink-description';
 import MenuItem from '../menu-item/menu-item';
@@ -19,16 +21,25 @@ export class Page extends React.Component {
   
   render() {
 
+    let homeOptions;
     let drinkOptions;
     let ingredients;
     let drinkDescription;
     let menuItems;
+    let search;
 
-    // if (this.props.view === 'home') {
+    if (this.props.view === 'home') {
+      homeOptions = [<HomeOption text='Search Drinks by Name' newView='search'/>, 
+      <HomeOption text='Find Drinks by Ingredients' newView='chooseLiquor'/>]
+    }
 
-    // }
+    else if (this.props.view === 'search') {
+      search = <Search />
+      drinkOptions = this.props.cocktails.map((drink, key) => ( 
+      <Ingredient key={key} choices={drink.cocktailName} /> ))
+    }
 
-    if (this.props.view === 'chooseLiquor') {
+    else if (this.props.view === 'chooseLiquor') {
       if (this.props.isLoading) {
         return <p className='loading-screen'>Loading...</p>
       }
@@ -39,9 +50,6 @@ export class Page extends React.Component {
       }
     }
     else if (this.props.view === 'chooseBase') {
-      // let bases = this.props.cocktails.map((cocktail) => {
-      //   return cocktail.baseLiquid
-      // })
       let bases = [];
       this.props.cocktails.forEach((cocktail) => {
         for (let i=0; i < cocktail.baseLiquid.length; i++) {
@@ -93,6 +101,8 @@ export class Page extends React.Component {
           <NavBar />
           <div className="results">
             <Header />
+            {search}
+            {homeOptions}
             {ingredients}
             {drinkDescription}
             {drinkOptions}
