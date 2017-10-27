@@ -8,7 +8,8 @@ export class Search extends React.Component {
 
   onSubmit(event){
     event.preventDefault();
-    const value = this.input.value;
+    const value = this.searched.value;
+    console.log(value);
     this.props.dispatch(actions.fetchCocktailsByName(value));
   }
 
@@ -16,9 +17,9 @@ export class Search extends React.Component {
     return (
       <form id="form" className="form">
         <label>Search by Name 
-          <input type="text" className="form-input" name="textfield" ref={input => this.input = input}/>
+          <input type="text" className="form-input" ref={searchTerm => this.searched = searchTerm}/>
         </label>
-        <button type="submit" className="submit-button">Submit</button>
+        <button onClick={(e) => this.onSubmit(e)} type="submit" className="submit-button">Submit</button>
       </form>
     )
   }
