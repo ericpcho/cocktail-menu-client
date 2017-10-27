@@ -92,7 +92,7 @@ export const combinedReducer = (state=initialState, action) => {
         })
     }
 
-    else if (action.type === actions.FETCH_MENU2_SUCCESS) {
+    else if (action.type === actions.FETCH_MENU_SUCCESS) {
         return Object.assign({}, state, {
             view: "sharedMenu",
             menuItems: action.menu

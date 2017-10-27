@@ -8,7 +8,7 @@ import './shared-menu.css';
 export class SharedMenu extends React.Component {
   
   componentDidMount() {
-    this.props.dispatch(actions.fetchMenu2(this.props.id))
+    this.props.dispatch(actions.fetchMenu(this.props.id))
   }
   
   render() {

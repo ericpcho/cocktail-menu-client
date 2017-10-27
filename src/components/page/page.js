@@ -13,7 +13,7 @@ export class Page extends React.Component {
   onClick(event) {
     const selection = this.props.menuItems;
     this.props.dispatch(actions.postMenu(selection)).then(() => {
-    this.props.dispatch(actions.fetchMenu(this.props.id));
+    this.props.dispatch(actions.fetchMenuId(this.props.id));
     });
   }
   
@@ -36,7 +36,9 @@ export class Page extends React.Component {
     }
     else if (this.props.view === 'chooseBase') {
       let bases = this.props.cocktails.map((cocktail) => {
-        return cocktail.baseLiquid
+        for (let i=0; i < cocktail.baseLiquid.length; i++) {
+          return cocktail.baseLiquid[i]
+        }
       })
       let filteredBases = Array.from(new Set(bases))
       ingredients = filteredBases.map((base) => (

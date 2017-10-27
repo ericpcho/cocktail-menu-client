@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import './nav-button.css'
 
 export class NavButton extends React.Component {
+  
   onClick() {
     if (this.props.text === 'Home') {
     this.props.dispatch(actions.returnToHome())

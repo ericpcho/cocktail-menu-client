@@ -71,26 +71,26 @@ export const postMenu = (state) => dispatch => {
     .catch(error => dispatch(postMenuError(error)))
 }
 
-// Get Menu
-export const FETCH_MENU_REQUEST = 'FETCH_MENU_REQUEST';
-export const fetchMenuRequest = () => ({
-    type: FETCH_MENU_REQUEST
+// Get Menu ID
+export const FETCH_MENU_ID_REQUEST = 'FETCH_MENU_ID_REQUEST';
+export const fetchMenuIdRequest = () => ({
+    type: FETCH_MENU_ID_REQUEST
 })
 
-export const FETCH_MENU_SUCCESS = 'FETCH_MENU_SUCCESS';
-export const fetchMenuSuccess = (menu) => ({
-    type: FETCH_MENU_SUCCESS,
+export const FETCH_MENU_ID_SUCCESS = 'FETCH_MENU_ID_SUCCESS';
+export const fetchMenuIdSuccess = (menu) => ({
+    type: FETCH_MENU_ID_SUCCESS,
     menu
 })
 
-export const FETCH_MENU_ERROR = 'FETCH_MENU_ERROR';
-export const fetchMenuError = (error) => ({
-    type: FETCH_MENU_ERROR,
+export const FETCH_MENU_ID_ERROR = 'FETCH_MENU_ID_ERROR';
+export const fetchMenuIdError = (error) => ({
+    type: FETCH_MENU_ID_ERROR,
     error
 })
 
-export const fetchMenu = (id) => dispatch => {
-    dispatch(fetchMenuRequest);
+export const fetchMenuId = (id) => dispatch => {
+    dispatch(fetchMenuIdRequest);
     fetch(`${API_BASE_URL}/api/menus/${id}`)
     .then(res => {
         if (!res.ok) {
@@ -99,9 +99,9 @@ export const fetchMenu = (id) => dispatch => {
         window.open(`http://taxi-driver-kangaroo-18524.netlify.com/${id}`)
     })
     .then((menu) => {
-        return dispatch(fetchMenuSuccess(menu))
+        return dispatch(fetchMenuIdSuccess(menu))
     })
-    .catch(error => dispatch(fetchMenuError(error)))
+    .catch(error => dispatch(fetchMenuIdError(error)))
   }
 
 //State Change Actions
@@ -138,7 +138,8 @@ export const deleteMenuItem = (updatedMenu) => ({
     updatedMenu
 })
 
-export const fetchMenu2 = (id) => dispatch => {
+// Get Menu
+export const fetchMenu = (id) => dispatch => {
     dispatch(fetchMenuRequest);
     fetch(`${API_BASE_URL}/api/menus/${id}`)
     .then(res => {
@@ -149,24 +150,24 @@ export const fetchMenu2 = (id) => dispatch => {
     })
     .then((res) => {
         console.log(res)
-        return dispatch(fetchMenu2Success(res.menuItems))
+        return dispatch(fetchMenuSuccess(res.menuItems))
     })
-    .catch(error => dispatch(fetchMenu2Error(error)))
+    .catch(error => dispatch(fetchMenuError(error)))
   }
 
-  export const FETCH_MENU2_REQUEST = 'FETCH_MENU2_REQUEST';
-  export const fetchMenu2Request = () => ({
-      type: FETCH_MENU2_REQUEST
+  export const FETCH_MENU_REQUEST = 'FETCH_MENU_REQUEST';
+  export const fetchMenuRequest = () => ({
+      type: FETCH_MENU_REQUEST
   })
   
-  export const FETCH_MENU2_SUCCESS = 'FETCH_MENU2_SUCCESS';
-  export const fetchMenu2Success = (menu) => ({
-      type: FETCH_MENU2_SUCCESS,
+  export const FETCH_MENU_SUCCESS = 'FETCH_MENU_SUCCESS';
+  export const fetchMenuSuccess = (menu) => ({
+      type: FETCH_MENU_SUCCESS,
       menu
   })
   
-  export const FETCH_MENU2_ERROR = 'FETCH_MENU2_ERROR';
-  export const fetchMenu2Error = (error) => ({
-      type: FETCH_MENU2_ERROR,
+  export const FETCH_MENU_ERROR = 'FETCH_MENU_ERROR';
+  export const fetchMenuError = (error) => ({
+      type: FETCH_MENU_ERROR,
       error
   })

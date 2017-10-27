@@ -5,7 +5,6 @@ import './header.css'
 
 export class Header extends React.Component {
     render() {
-      // let drinkOption;
       let headerText;
       
       if (this.props.view === 'chooseLiquor') {
