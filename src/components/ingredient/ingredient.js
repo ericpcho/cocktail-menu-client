@@ -16,7 +16,7 @@ export class Ingredient extends React.Component {
       const filter = this.props.cocktails.filter(function(cocktail) {
         return cocktail.baseLiquid.includes(selection);
       })
-      this.props.dispatch(actions.filterCocktails(filter));
+      this.props.dispatch(actions.filterCocktails(filter, selection));
     }
     else if (this.props.view === 'chooseDrink' || this.props.view === 'recipe') {
       const selection = this.props.choices;

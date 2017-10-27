@@ -106,9 +106,10 @@ export const fetchMenuId = (id) => dispatch => {
 
 //State Change Actions
 export const FILTER_COCKTAILS = 'FILTER_COCKTAILS';
-export const filterCocktails = (selection) => ({
+export const filterCocktails = (filter, selection) => ({
     type: FILTER_COCKTAILS,
-    cocktails: selection
+    cocktails: filter,
+    selection
 })
 
 export const DISPLAY_COCKTAIL = 'DISPLAY_COCKTAIL';

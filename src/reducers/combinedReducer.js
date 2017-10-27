@@ -36,7 +36,7 @@ export const combinedReducer = (state=initialState, action) => {
             // loading: false,
             // error: null,
             cocktails: action.cocktails,
-            selection: [state.selection, action.cocktails[0].baseLiquid]
+            selection: [state.selection, action.selection]
         })
     }
 
