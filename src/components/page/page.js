@@ -37,6 +37,9 @@ export class Page extends React.Component {
       search = <Search />
       drinkOptions = this.props.cocktails.map((drink, key) => ( 
       <Ingredient key={key} choices={drink.cocktailName} /> ))
+      drinkDescription = 
+      <DrinkDescription image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName} 
+      ingredients={this.props.selectedCocktail[0].ingredients} recipe={this.props.selectedCocktail[0].recipe}/>
     }
 
     else if (this.props.view === 'chooseLiquor') {
