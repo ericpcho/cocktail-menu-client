@@ -9,7 +9,7 @@ const initialState = {
   selection: '',
 //   error: null,
   menuItems: [],
-  id: ''
+  id: '',
 };
 
 export const combinedReducer = (state=initialState, action) => {
@@ -28,7 +28,9 @@ else if (action.type === actions.FETCH_COCKTAILS_BY_NAME_REQUEST) {
 
 else if (action.type === actions.FETCH_COCKTAILS_BY_NAME_SUCCESS) {
     return Object.assign({}, state, {
-        cocktails: action.cocktails
+        cocktails: action.cocktails,
+        hasCocktail: false,
+        loading: false
     })
 }
 
@@ -63,7 +65,14 @@ else if (action.type === actions.FETCH_COCKTAILS_BY_NAME_SUCCESS) {
             view: 'recipe',
             // loading: false,
             // error: null,
-            selectedCocktail: action.selectedCocktail
+            selectedCocktail: action.selectedCocktail,
+        })
+    }
+
+    else if (action.type === actions.DISPLAY_COCKTAIL2) {
+        return Object.assign({}, state, {
+            selectedCocktail: action.selectedCocktail,
+            hasCocktail: true
         })
     }
 
@@ -78,9 +87,8 @@ else if (action.type === actions.FETCH_COCKTAILS_BY_NAME_SUCCESS) {
             view: 'home',
             cocktails: [],
             selectedCocktail: [],
-            // loading: false,
             selection: '',
-            // error: null
+            hasCocktail: false
         })
     }
 

@@ -25,6 +25,13 @@ export class Ingredient extends React.Component {
       })
       this.props.dispatch(actions.displayCocktail(filter))
     }
+    else if (this.props.view === 'search' ) {
+      const selection = this.props.choices;
+      const filter = this.props.cocktails.filter(function(cocktail) {
+        return cocktail.cocktailName === selection
+      })
+      this.props.dispatch(actions.displayCocktail2(filter))
+    }
   }
 
   render() {

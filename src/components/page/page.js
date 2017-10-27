@@ -34,12 +34,17 @@ export class Page extends React.Component {
     }
 
     else if (this.props.view === 'search') {
-      search = <Search />
-      drinkOptions = this.props.cocktails.map((drink, key) => ( 
-      <Ingredient key={key} choices={drink.cocktailName} /> ))
-      drinkDescription = 
-      <DrinkDescription image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName} 
-      ingredients={this.props.selectedCocktail[0].ingredients} recipe={this.props.selectedCocktail[0].recipe}/>
+      if (this.props.hasCocktail) {
+        search = <Search />
+        drinkOptions = this.props.cocktails.map((drink, key) => ( 
+          <Ingredient key={key} choices={drink.cocktailName} /> ))
+          drinkDescription = 
+          <DrinkDescription image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName} 
+          ingredients={this.props.selectedCocktail[0].ingredients} recipe={this.props.selectedCocktail[0].recipe}/>
+      }
+      else {search = <Search />
+        drinkOptions = this.props.cocktails.map((drink, key) => ( 
+        <Ingredient key={key} choices={drink.cocktailName} /> ))}
     }
 
     else if (this.props.view === 'chooseLiquor') {
@@ -123,7 +128,8 @@ const mapStateToProps = state => ({
   selectedCocktail: state.selectedCocktail,
   menuItems: state.menuItems,
   id: state.id,
-  isLoading: state.loading
+  isLoading: state.loading,
+  hasCocktail: state.hasCocktail
 });
 
 export default connect(mapStateToProps)(Page);

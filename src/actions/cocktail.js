@@ -154,6 +154,12 @@ export const displayCocktail = (selection) => ({
     selectedCocktail: selection
 })
 
+export const DISPLAY_COCKTAIL2 = 'DISPLAY_COCKTAIL2';
+export const displayCocktail2 = (selection) => ({
+    type: DISPLAY_COCKTAIL2,
+    selectedCocktail: selection
+})
+
 export const SAVE_TO_MENU = 'SAVE_TO_MENU';
 export const saveToMenu = () => ({
     type: SAVE_TO_MENU
