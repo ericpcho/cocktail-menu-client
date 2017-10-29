@@ -1,36 +1,34 @@
 import React from 'react';
 import * as actions from '../../actions/cocktail.js'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 import './ingredient.css';
 
 export class Ingredient extends React.Component {
-
   onClick(event) {
+    const selection = this.props.choices;
+    let filter;
+
     if (this.props.view === 'chooseLiquor') {
-      const selection = this.props.choices;
-      this.props.dispatch(actions.fetchCocktails(selection))
+      this.props.dispatch(actions.fetchCocktailsByAlcohol(selection))
     }
     else if (this.props.view === 'chooseBase') {
-      const selection = this.props.choices;
-      const filter = this.props.cocktails.filter(function(cocktail) {
+      filter = this.props.cocktails.filter(function (cocktail) {
         return cocktail.baseLiquid.includes(selection);
       })
-      this.props.dispatch(actions.filterCocktails(filter, selection));
+      this.props.dispatch(actions.filterCocktailsByBase(filter, selection));
     }
     else if (this.props.view === 'chooseDrink' || this.props.view === 'recipe') {
-      const selection = this.props.choices;
-      const filter = this.props.cocktails.filter(function(cocktail) {
+      filter = this.props.cocktails.filter(function (cocktail) {
         return cocktail.cocktailName === selection
       })
-      this.props.dispatch(actions.displayCocktail(filter))
+      this.props.dispatch(actions.displayRecipe(filter))
     }
-    else if (this.props.view === 'search' ) {
-      const selection = this.props.choices;
-      const filter = this.props.cocktails.filter(function(cocktail) {
+    else if (this.props.view === 'search') {
+      filter = this.props.cocktails.filter(function (cocktail) {
         return cocktail.cocktailName === selection
       })
-      this.props.dispatch(actions.displayCocktail2(filter))
+      this.props.dispatch(actions.displaySearchedRecipe(filter))
     }
   }
 
@@ -48,7 +46,7 @@ export class Ingredient extends React.Component {
           <p><i className="fa fa-tint" aria-hidden="true"></i>  {this.props.choices}</p>
         </div>
       )
-  }
+    }
   }
 }
 

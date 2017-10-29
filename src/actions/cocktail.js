@@ -1,25 +1,25 @@
 import {API_BASE_URL} from '../config'
 
-// Get Cocktails
-export const FETCH_COCKTAILS_REQUEST = 'FETCH_COCKTAILS_REQUEST';
-export const fetchCocktailsRequest = () => ({
-    type: FETCH_COCKTAILS_REQUEST
+// Get Cocktails - Fetch by Alcohol
+export const FETCH_COCKTAILS_BY_ALCOHOL_REQUEST = 'FETCH_COCKTAILS_BY_ALCOHOL_REQUEST';
+export const fetchCocktailsByAlcoholRequest = () => ({
+    type: FETCH_COCKTAILS_BY_ALCOHOL_REQUEST
 })
 
-export const FETCH_COCKTAILS_SUCCESS = 'FETCH_COCKTAILS_SUCCESS';
-export const fetchCocktailsSuccess = (cocktails) => ({
-    type: FETCH_COCKTAILS_SUCCESS,
+export const FETCH_COCKTAILS_BY_ALCOHOL_SUCCESS = 'FETCH_COCKTAILS_BY_ALCOHOL_SUCCESS';
+export const fetchCocktailsByAlcoholSuccess = (cocktails) => ({
+    type: FETCH_COCKTAILS_BY_ALCOHOL_SUCCESS,
     cocktails
 })
 
-export const FETCH_COCKTAILS_ERROR = 'FETCH_COCKTAILS_ERROR';
-export const fetchCocktailsError = (error) => ({
-    type: FETCH_COCKTAILS_ERROR,
+export const FETCH_COCKTAILS_BY_ALCOHOL_ERROR = 'FETCH_COCKTAILS_BY_ALCOHOL_ERROR';
+export const fetchCocktailsByAlcoholError = (error) => ({
+    type: FETCH_COCKTAILS_BY_ALCOHOL_ERROR,
     error
 })
 
-export const fetchCocktails = (alcohol) => dispatch => {
-    dispatch(fetchCocktailsRequest());
+export const fetchCocktailsByAlcohol = (alcohol) => dispatch => {
+    dispatch(fetchCocktailsByAlcoholRequest());
     fetch(`${API_BASE_URL}/api/cocktails?alcohol=${alcohol}`)
     .then(res => {
         if (!res.ok) {
@@ -27,10 +27,12 @@ export const fetchCocktails = (alcohol) => dispatch => {
         }
         return res.json()
     })
-    .then((cocktails) => dispatch(fetchCocktailsSuccess(cocktails)))
-    .catch(error => dispatch(fetchCocktailsError(error)))
+    .then((cocktails) => dispatch(fetchCocktailsByAlcoholSuccess(cocktails)))
+    .catch(error => dispatch(fetchCocktailsByAlcoholError(error)))
   }
 
+
+// Get Cocktails - Fetch by Name
   export const FETCH_COCKTAILS_BY_NAME_REQUEST = 'FETCH_COCKTAILS_BY_NAME_REQUEST';
   export const fetchCocktailsByNameRequest = () => ({
       type: FETCH_COCKTAILS_BY_NAME_REQUEST
@@ -141,22 +143,22 @@ export const changeView = (view) => ({
     view
 })
 
-export const FILTER_COCKTAILS = 'FILTER_COCKTAILS';
-export const filterCocktails = (filter, selection) => ({
-    type: FILTER_COCKTAILS,
+export const FILTER_COCKTAILS_BY_BASE = 'FILTER_COCKTAILS_BY_BASE';
+export const filterCocktailsByBase = (filter, selection) => ({
+    type: FILTER_COCKTAILS_BY_BASE,
     cocktails: filter,
     selection
 })
 
-export const DISPLAY_COCKTAIL = 'DISPLAY_COCKTAIL';
-export const displayCocktail = (selection) => ({
-    type: DISPLAY_COCKTAIL,
+export const DISPLAY_RECIPE = 'DISPLAY_RECIPE';
+export const displayRecipe = (selection) => ({
+    type: DISPLAY_RECIPE,
     selectedCocktail: selection
 })
 
-export const DISPLAY_COCKTAIL2 = 'DISPLAY_COCKTAIL2';
-export const displayCocktail2 = (selection) => ({
-    type: DISPLAY_COCKTAIL2,
+export const DISPLAY_SEARCHED_RECIPE = 'DISPLAY_SEARCHED_RECIPE';
+export const displaySearchedRecipe = (selection) => ({
+    type: DISPLAY_SEARCHED_RECIPE,
     selectedCocktail: selection
 })
 

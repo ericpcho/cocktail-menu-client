@@ -34,13 +34,13 @@ else if (action.type === actions.FETCH_COCKTAILS_BY_NAME_SUCCESS) {
     })
 }
 
-    else if (action.type === actions.FETCH_COCKTAILS_REQUEST) {
+    else if (action.type === actions.FETCH_COCKTAILS_BY_ALCOHOL_REQUEST) {
         return Object.assign({}, state, {
             loading: true
         })
     }
 
-    else if (action.type === actions.FETCH_COCKTAILS_SUCCESS) {
+    else if (action.type === actions.FETCH_COCKTAILS_BY_ALCOHOL_SUCCESS) {
         return Object.assign({}, state, {
             view: 'chooseBase',
             loading: false,
@@ -50,7 +50,7 @@ else if (action.type === actions.FETCH_COCKTAILS_BY_NAME_SUCCESS) {
         })
     }
 
-    else if (action.type === actions.FILTER_COCKTAILS) {
+    else if (action.type === actions.FILTER_COCKTAILS_BY_BASE) {
         return Object.assign({}, state, {
             view: 'chooseDrink',
             // loading: false,
@@ -60,7 +60,7 @@ else if (action.type === actions.FETCH_COCKTAILS_BY_NAME_SUCCESS) {
         })
     }
 
-    else if (action.type === actions.DISPLAY_COCKTAIL) {
+    else if (action.type === actions.DISPLAY_RECIPE) {
         return Object.assign({}, state, {
             view: 'recipe',
             // loading: false,
@@ -69,7 +69,7 @@ else if (action.type === actions.FETCH_COCKTAILS_BY_NAME_SUCCESS) {
         })
     }
 
-    else if (action.type === actions.DISPLAY_COCKTAIL2) {
+    else if (action.type === actions.DISPLAY_SEARCHED_RECIPE) {
         return Object.assign({}, state, {
             selectedCocktail: action.selectedCocktail,
             hasCocktail: true
@@ -104,7 +104,7 @@ else if (action.type === actions.FETCH_COCKTAILS_BY_NAME_SUCCESS) {
         })
     }
 
-    else if (action.type === actions.FETCH_COCKTAILS_ERROR) {
+    else if (action.type === actions.FETCH_COCKTAILS_BY_ALCOHOL_ERROR) {
         return Object.assign({}, state, {
             // loading: false,
             error: action.error

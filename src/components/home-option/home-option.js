@@ -6,7 +6,6 @@ import './home-option.css';
 
 export class HomeOption extends React.Component {
   onClick(event) {
-    console.log("im clicking")
     this.props.dispatch(actions.changeView(this.props.newView))
   }
 

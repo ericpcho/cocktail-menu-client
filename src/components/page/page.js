@@ -1,6 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import HomeOption from'../home-option/home-option';
+import { connect } from 'react-redux';
+import HomeOption from '../home-option/home-option';
 import NavBar from '../nav-bar/nav-bar';
 import Header from '../header/header';
 import Search from '../search/search';
@@ -13,12 +13,13 @@ import './page.css';
 
 export class Page extends React.Component {
   onClick(event) {
-    const selection = this.props.menuItems;
-    this.props.dispatch(actions.postMenu(selection)).then(() => {
-    this.props.dispatch(actions.fetchMenuId(this.props.id));
+    const currentMenuItems = this.props.menuItems;
+    const menuId = this.props.id;
+    this.props.dispatch(actions.postMenu(currentMenuItems)).then(() => {
+      this.props.dispatch(actions.fetchMenuId(menuId));
     });
   }
-  
+
   render() {
 
     let homeOptions;
@@ -29,22 +30,24 @@ export class Page extends React.Component {
     let search;
 
     if (this.props.view === 'home') {
-      homeOptions = [<HomeOption text='Search Drinks by Name' newView='search'/>, 
-      <HomeOption text='Find Drinks by Ingredients' newView='chooseLiquor'/>]
+      homeOptions = [<HomeOption text='Search Drinks by Name' newView='search' />,
+      <HomeOption text='Find Drinks by Ingredients' newView='chooseLiquor' />]
     }
 
     else if (this.props.view === 'search') {
       if (this.props.hasCocktail) {
         search = <Search />
-        drinkOptions = this.props.cocktails.map((drink, key) => ( 
-          <Ingredient key={key} choices={drink.cocktailName} /> ))
-          drinkDescription = 
-          <DrinkDescription image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName} 
-          ingredients={this.props.selectedCocktail[0].ingredients} recipe={this.props.selectedCocktail[0].recipe}/>
+        drinkOptions = this.props.cocktails.map((drink, key) => (
+          <Ingredient key={key} choices={drink.cocktailName} />))
+        drinkDescription =
+          <DrinkDescription image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName}
+            ingredients={this.props.selectedCocktail[0].ingredients} recipe={this.props.selectedCocktail[0].recipe} />
       }
-      else {search = <Search />
-        drinkOptions = this.props.cocktails.map((drink, key) => ( 
-        <Ingredient key={key} choices={drink.cocktailName} /> ))}
+      else {
+        search = <Search />
+        drinkOptions = this.props.cocktails.map((drink, key) => (
+          <Ingredient key={key} choices={drink.cocktailName} />))
+      }
     }
 
     else if (this.props.view === 'chooseLiquor') {
@@ -60,14 +63,14 @@ export class Page extends React.Component {
     else if (this.props.view === 'chooseBase') {
       let bases = [];
       this.props.cocktails.forEach((cocktail) => {
-        for (let i=0; i < cocktail.baseLiquid.length; i++) {
+        for (let i = 0; i < cocktail.baseLiquid.length; i++) {
           bases.push(cocktail.baseLiquid[i]);
         }
       })
       let filteredBases = Array.from(new Set(bases))
       ingredients = filteredBases.map((base, key) => (
         <Ingredient key={key} choices={base} />
-      )) 
+      ))
     }
     else if (this.props.view === 'chooseDrink') {
       drinkOptions = this.props.cocktails.map((drink, key) => (
@@ -81,15 +84,15 @@ export class Page extends React.Component {
       drinkOptions = filteredCocktails.map((drink, key) => (
         <Ingredient key={key} choices={drink.cocktailName} />
       ))
-      drinkDescription = 
-        <DrinkDescription image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName} ingredients={this.props.selectedCocktail[0].ingredients} recipe={this.props.selectedCocktail[0].recipe}/>
+      drinkDescription =
+        <DrinkDescription image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName} ingredients={this.props.selectedCocktail[0].ingredients} recipe={this.props.selectedCocktail[0].recipe} />
     }
     else if (this.props.view === 'menu') {
       menuItems = this.props.menuItems.map((menuItem, key) => (
         <MenuItem key={key} name={menuItem.cocktailName} ingredients={menuItem.ingredients} />
       ))
     }
-    
+
     if (this.props.view === 'menu') {
       return (
         <div className="page">
@@ -116,8 +119,8 @@ export class Page extends React.Component {
             {drinkOptions}
           </div>
         </div>
-    );
-  }
+      );
+    }
   };
 };
 
