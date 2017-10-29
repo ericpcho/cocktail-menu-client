@@ -6,7 +6,7 @@ import './search.css';
 
 export class Search extends React.Component {
 
-  onSubmit(event){
+  onSubmit(event) {
     event.preventDefault();
     const value = this.searched.value;
     console.log(value);
@@ -16,8 +16,8 @@ export class Search extends React.Component {
   render() {
     return (
       <form id="form" className="form">
-        <label>Search by Name 
-          <input type="text" className="form-input" ref={searchTerm => this.searched = searchTerm}/>
+        <label>Search by Name
+          <input type="text" className="form-input" ref={searchTerm => this.searched = searchTerm} />
         </label>
         <button onClick={(e) => this.onSubmit(e)} type="submit" className="submit-button">Submit</button>
       </form>

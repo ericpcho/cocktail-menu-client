@@ -2,9 +2,9 @@ import React from 'react';
 import * as actions from '../../actions/cocktail.js'
 import { connect } from 'react-redux';
 
-import './drink-description.css';
+import './cocktail-recipe.css';
 
-export class DrinkDescription extends React.Component {
+export class CocktailRecipe extends React.Component {
 
   onClick() {
     this.props.dispatch(actions.saveToMenu())
@@ -33,4 +33,4 @@ export class DrinkDescription extends React.Component {
   }
 }
 
-export default connect()(DrinkDescription);
+export default connect()(CocktailRecipe);
