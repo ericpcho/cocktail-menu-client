@@ -5,10 +5,10 @@ import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import App from './app.js';
 import {createStore, applyMiddleware} from 'redux';
-import {combinedReducer} from './reducers/combinedReducer.js';
+import {reducer} from './reducers/reducer.js';
 import registerServiceWorker from './registerServiceWorker';
 
-const store = createStore(combinedReducer, applyMiddleware(thunk));
+const store = createStore(reducer, applyMiddleware(thunk));
 
 
 ReactDOM.render(

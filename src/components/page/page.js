@@ -4,8 +4,8 @@ import HomeOption from '../home-option/home-option';
 import NavBar from '../nav-bar/nav-bar';
 import Header from '../header/header';
 import Search from '../search/search';
-import Ingredient from '../ingredient/ingredient';
-import DrinkDescription from '../drink-description/drink-description';
+import CocktailCard from '../cocktail-card/cocktail-card';
+import CocktailRecipe from '../cocktail-recipe/cocktail-recipe';
 import MenuItem from '../menu-item/menu-item';
 import * as actions from '../../actions/cocktail.js'
 
@@ -22,29 +22,29 @@ export class Page extends React.Component {
 
     let homeOptions;
     let drinkOptions;
-    let ingredients;
-    let drinkDescription;
+    let cocktailCards;
+    let cocktailRecipe;
     let menuItems;
     let search;
 
     if (this.props.view === 'home') {
-      homeOptions = [<HomeOption text='Search Drinks by Name' newView='search' />,
-      <HomeOption text='Find Drinks by Ingredients' newView='chooseLiquor' />]
+      homeOptions = [<HomeOption text='Search Drinks by Name' newView='search' key={0} />,
+      <HomeOption text='Find Drinks by Ingredients' newView='chooseLiquor' key={1} />]
     }
 
     else if (this.props.view === 'search') {
       if (this.props.hasCocktail) {
         search = <Search />
         drinkOptions = this.props.cocktails.map((drink, key) => (
-          <Ingredient key={key} choices={drink.cocktailName} />))
-        drinkDescription =
-          <DrinkDescription image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName}
+          <CocktailCard key={key} selectedItem={drink.cocktailName} />))
+        cocktailRecipe =
+          <CocktailRecipe image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName}
             ingredients={this.props.selectedCocktail[0].ingredients} recipe={this.props.selectedCocktail[0].recipe} />
       }
       else {
         search = <Search />
         drinkOptions = this.props.cocktails.map((drink, key) => (
-          <Ingredient key={key} choices={drink.cocktailName} />))
+          <CocktailCard key={key} selectedItem={drink.cocktailName} />))
       }
     }
 
@@ -53,8 +53,8 @@ export class Page extends React.Component {
         return <p className='loading-screen'>Loading...</p>
       }
       else {
-        ingredients = this.props.alcohol.map((alcohol, key) => (
-          <Ingredient key={key} choices={alcohol} />
+        cocktailCards = this.props.alcohol.map((alcohol, key) => (
+          <CocktailCard key={key} selectedItem={alcohol} />
         ))
       }
     }
@@ -66,13 +66,13 @@ export class Page extends React.Component {
         }
       })
       let filteredBases = Array.from(new Set(bases))
-      ingredients = filteredBases.map((base, key) => (
-        <Ingredient key={key} choices={base} />
+      cocktailCards = filteredBases.map((base, key) => (
+        <CocktailCard key={key} selectedItem={base} />
       ))
     }
     else if (this.props.view === 'chooseDrink') {
       drinkOptions = this.props.cocktails.map((drink, key) => (
-        <Ingredient key={key} choices={drink.cocktailName} />
+        <CocktailCard key={key} selectedItem={drink.cocktailName} />
       ))
     }
     else if (this.props.view === 'recipe') {
@@ -80,10 +80,10 @@ export class Page extends React.Component {
         return cocktail.cocktailName !== this.props.selectedCocktail[0].cocktailName
       })
       drinkOptions = filteredCocktails.map((drink, key) => (
-        <Ingredient key={key} choices={drink.cocktailName} />
+        <CocktailCard key={key} selectedItem={drink.cocktailName} />
       ))
-      drinkDescription =
-        <DrinkDescription image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName} ingredients={this.props.selectedCocktail[0].ingredients} recipe={this.props.selectedCocktail[0].recipe} />
+      cocktailRecipe =
+        <CocktailRecipe image={this.props.selectedCocktail[0].thumbnail} name={this.props.selectedCocktail[0].cocktailName} ingredients={this.props.selectedCocktail[0].ingredients} recipe={this.props.selectedCocktail[0].recipe} />
     }
     else if (this.props.view === 'menu') {
       menuItems = this.props.menuItems.map((menuItem, key) => (
@@ -112,8 +112,8 @@ export class Page extends React.Component {
             <Header />
             {search}
             {homeOptions}
-            {ingredients}
-            {drinkDescription}
+            {cocktailCards}
+            {cocktailRecipe}
             {drinkOptions}
           </div>
         </div>
