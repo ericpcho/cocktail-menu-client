@@ -19,7 +19,7 @@ export class Page extends React.Component {
   }
 
   render() {
-
+    let homeDescription;
     let homeOptions;
     let drinkOptions;
     let cocktailCards;
@@ -28,8 +28,15 @@ export class Page extends React.Component {
     let search;
 
     if (this.props.view === 'home') {
+      homeDescription = <p>Welcome to Cocktail Search! Do you ever have a bunch of ingredients at home
+        for cocktails but aren't sure what you can make? Have you ever wanted to recreate a drink you 
+        tried at a bar but don't know what the ingredients are? With Cocktail Search, both of these
+        problems can be solved. By clicking the buttons below, you can either search for drinks by name
+        or select the ingredients you currently have to find different cocktails. Each cocktail has its
+        own recipe card with an ingredients list and instructions.
+      </p>;
       homeOptions = [<HomeOption text='Search Drinks by Name' newView='search' key={0} />,
-      <HomeOption text='Find Drinks by Ingredients' newView='chooseLiquor' key={1} />]
+      <HomeOption text='Find Drinks by Ingredients' newView='chooseLiquor' key={1} />];
     }
 
     else if (this.props.view === 'search') {
@@ -111,6 +118,7 @@ export class Page extends React.Component {
           <div className="results">
             <Header />
             {search}
+            {homeDescription}
             {homeOptions}
             {cocktailCards}
             {cocktailRecipe}
