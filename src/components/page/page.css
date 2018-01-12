@@ -60,7 +60,8 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 600px;
+  max-width: 640px;
+  min-width: 360px;
 }
 
 .appDescription h2 {
