@@ -71,3 +71,15 @@
 .appDescription p {
   text-align: justify;
 }
+
+@media (max-width: 640px) {
+  .menu {
+    width: 360px;
+    height: 540;
+    font-size: 1em;
+  }
+
+  .menu h2 {
+    font-size: 2em;
+  }
+}
