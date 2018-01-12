@@ -10,7 +10,7 @@ export class Header extends React.Component {
     if (this.props.view === 'chooseLiquor') {
       headerText =
         <div>
-          <h2>Cocktail Menu Maker</h2>
+          <h2>Cocktail Search</h2>
           <h3>Start building your menu by selecting a liquor below</h3>
         </div>
     }
