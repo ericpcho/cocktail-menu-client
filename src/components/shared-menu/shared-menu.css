@@ -29,3 +29,15 @@
     -webkit-print-color-adjust: exact;
   }
 }
+
+@media (max-width: 640px) {
+  .shared-menu {
+    width: 360px;
+    height: 540;
+    font-size: 1em;
+  }
+
+  .shared-menu h2 {
+    font-size: 2em;
+  }
+}
