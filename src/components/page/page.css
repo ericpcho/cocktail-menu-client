@@ -55,3 +55,18 @@
 .loading-screen {
   text-align: center;
 }
+
+.appDescription {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
+
+.appDescription h2 {
+  color: #333;
+}
+
+.appDescription p {
+  text-align: justify;
+}
