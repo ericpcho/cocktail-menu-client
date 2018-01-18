@@ -9,7 +9,6 @@ export class Search extends React.Component {
   onSubmit(event) {
     event.preventDefault();
     const value = this.searched.value;
-    console.log(value);
     this.props.dispatch(actions.fetchCocktailsByName(value));
   }
 

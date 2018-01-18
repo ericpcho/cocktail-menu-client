@@ -31,7 +31,6 @@ export class SharedMenu extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state)
   return {
     menuItems: state.menuItems,
     id: ownProps.match.params.id,

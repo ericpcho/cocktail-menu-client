@@ -194,7 +194,6 @@ export const fetchMenu = (id) => dispatch => {
         return res.json()
     })
     .then((res) => {
-        console.log(res)
         return dispatch(fetchMenuSuccess(res.menuItems))
     })
     .catch(error => dispatch(fetchMenuError(error)))
