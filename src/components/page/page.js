@@ -30,7 +30,7 @@ export class Page extends React.Component {
     if (this.props.view === 'home') {
       homeDescription = <div className='appDescription'>
         <h2>Cocktail Search</h2>
-        <p>
+        <p className="intro">
           Welcome to Cocktail Search! Do you ever have a bunch of ingredients at home
         for cocktails but aren't sure what you can make? Have you ever wanted to recreate a drink you
         tried at a bar but don't know what the ingredients are? With Cocktail Search, both of these
