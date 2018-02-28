@@ -10,7 +10,7 @@
 }
 
 .menu-item li:first-child::before {
-  content:""
+  content: "";
 }
 
 .menu-item li::before {
@@ -44,6 +44,6 @@
 }
 
 .delete-button:hover {
-  box-shadow: 0 0 25px rgba(0,0,0,.4);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
   color: black;
 }

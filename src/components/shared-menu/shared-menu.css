@@ -1,6 +1,6 @@
 .shared-menu {
   background-image: url("http://www.carusos-restaurant.com/images/background.jpg");
-  box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.40);
+  box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.4);
   font-family: Snell Roundhand, cursive;
   color: black;
   margin-bottom: 20px;
@@ -21,7 +21,7 @@
 @media print {
   .shared-menu {
     background-image: url("http://www.carusos-restaurant.com/images/background.jpg");
-    box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.40);
+    box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.4);
     height: 100%;
     width: 100%;
     position: fixed;
