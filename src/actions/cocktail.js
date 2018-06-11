@@ -128,7 +128,7 @@ export const fetchMenuId = (id) => dispatch => {
         if (!res.ok) {
             return Promise.reject(res.statusText)
         }
-        window.open(`http://cocktails.netlify.com/${id}`)
+        window.open(`https://cocktails.netlify.com/${id}`)
     })
     .then((menu) => {
         return dispatch(fetchMenuIdSuccess(menu))
